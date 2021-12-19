@@ -24,7 +24,8 @@ const About = () => {
   const [mehStuff, setMehStuff] = useState([
     "JQuery",
     "Coffee",
-    "Alcohol"
+    "Alcohol",
+    "Backend"
   ]);
 
   return (
@@ -110,7 +111,7 @@ const About = () => {
                 fontSize={{ base: "28px", md: "32px", lg: "36px" }}
                 mb={4}
               >
-                Thing I don't like
+                Thing I don’t like
               </Heading>
               <Paragraph fontSize="xl" lineHeight={1.6}>
                 {mehStuff.map((item) => (
