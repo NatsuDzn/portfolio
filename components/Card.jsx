@@ -31,7 +31,7 @@ const Card = ({ company }) => {
           as="a"
           href={company?.url}
           rel="noopener"
-          target="_blank"
+          isExternal
           aria-label={company?.name}
           mr={3}
           _groupHover={{ color: "teal.500" }}

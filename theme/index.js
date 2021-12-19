@@ -4,8 +4,13 @@ const config = {
   initialColorMode: "system",
 };
 
+// const fonts = {
+//   heading: "Poppins",
+//   body: "Poppins",
+// };
 
 const theme = extendTheme({ config });
 
-export default theme;
+// console.log(theme);
 
+export default theme;

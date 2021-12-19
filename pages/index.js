@@ -38,7 +38,7 @@ export default function Home() {
                   mb={8}
                   size="2xl"
                   name="Nathanael Louzoun"
-                  src="https://pbs.twimg.com/profile_images/1472278998625443852/tid81uzr_400x400.jpg"
+                  src="/assets/home.jpg"
                 />
               </Center>
 
@@ -47,7 +47,7 @@ export default function Home() {
                 fontSize={{ base: "28px", md: "40px", lg: "48px" }}
                 my={3}
               >
-                Hey , I’m Nathanael Louzoun
+                Hey, I’m Nathanael Louzoun
               </Heading>
               <Paragraph fontSize="2xl" lineHeight={1.6}>
                 I’m a front end developer, who is focused on React and Angular.
