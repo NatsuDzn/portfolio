@@ -5,6 +5,8 @@ import {
   LinkOverlay,
   LinkBox,
   useColorModeValue,
+  Tag,
+  Stack,
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
 
@@ -43,6 +45,18 @@ const Card = ({ company }) => {
             <Paragraph mt={1} fontSize="sm">
               {company?.description}
             </Paragraph>
+            <Stack
+              mt={2}
+              direction="row"
+              display={["none", "block"]}
+              spacing="1rem"
+            >
+              {company.stack.map((stack) => (
+                <Tag key={stack} size="sm">
+                  {stack}
+                </Tag>
+              ))}
+            </Stack>
           </LinkOverlay>
         </Box>
       </Box>

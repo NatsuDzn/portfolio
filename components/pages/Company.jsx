@@ -1,23 +1,22 @@
 import Card from "../Card";
 import { Heading, SlideFade, Grid } from "@chakra-ui/react";
-import {
-  FaRobot,
-  FaMicrochip,
-} from "react-icons/fa";
+import { FaRobot, FaMicrochip } from "react-icons/fa";
 
 const companies = [
   {
-    name: "DessIA (10/19 -> now)",
+    name: "DessIA",
     description:
       "Bot platform based on an Explainable AI to automate engineers tasks.",
     icon: <FaRobot fontSize="20px" />,
     url: "https://dessia.tech/",
+    stack: ["Angular", "PrimeNG", "Babylon JS", "Figma"],
   },
   {
-    name: "ThingType (Summer 2019)",
+    name: "ThingType",
     description: "Automatic conception of electronic board.",
     icon: <FaMicrochip fontSize="20px" />,
     url: "https://www.linkedin.com/company/thingtype/about/",
+    stack: ["Angular", "Figma"],
   },
 ];
 

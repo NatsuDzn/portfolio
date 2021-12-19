@@ -14,6 +14,7 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./extraNavOptions/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
+import { FaBook, FaTools } from "react-icons/fa";
 
 const Links = [
   {
@@ -26,10 +27,12 @@ const extraLinks = [
   {
     name: "Tools",
     route: "/tools",
+    icon: <FaTools />,
   },
   {
     name: "Blog",
     route: "/blog",
+    icon: <FaBook />,
   },
 ];
 

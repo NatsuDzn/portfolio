@@ -22,10 +22,10 @@ const About = () => {
   ]);
 
   const [mehStuff, setMehStuff] = useState([
-    "JQuery",
+    "jQuery",
     "Coffee",
     "Alcohol",
-    "Backend"
+    "Backend",
   ]);
 
   return (

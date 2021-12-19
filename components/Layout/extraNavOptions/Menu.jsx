@@ -31,9 +31,10 @@ const DropdownMenu = ({ currentPath, extraLinks }) => {
       </MenuButton>
       <MenuList bg={useColorModeValue("gray.50", "gray.800")}>
         {extraLinks &&
-          extraLinks?.map(({ name, route }) => (
+          extraLinks?.map(({ name, route, icon }) => (
             <Link href={route} key={name}>
               <MenuItem
+                icon={icon}
                 bg={
                   currentPath === route &&
                   useColorModeValue("gray.200", "gray.700")
