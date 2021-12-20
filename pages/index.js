@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Heading,
-  SlideFade,
+  ScaleFade,
   Divider,
   Avatar,
   Center,
@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <ScaleFade in={true} offsetY={80}>
             <Box>
               <Center>
                 <Avatar
@@ -57,7 +57,7 @@ export default function Home() {
               </Paragraph>
               <Divider my={10} />
             </Box>
-          </SlideFade>
+          </ScaleFade>
           <Company />
         </Container>
       </main>

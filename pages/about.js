@@ -4,7 +4,7 @@ import {
   Container,
   Divider,
   Heading,
-  SlideFade,
+  ScaleFade,
   Tag,
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
@@ -40,7 +40,7 @@ const About = () => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <ScaleFade in={true} offsetY={80}>
             <Box>
               <Heading
                 as="h1"
@@ -56,11 +56,11 @@ const About = () => {
                 like to read manga, code new things and hang out with friends.
               </Paragraph>
             </Box>
-          </SlideFade>
+          </ScaleFade>
 
           <Divider my={10} />
 
-          <SlideFade in={true} offsetY={80} delay={0.2}>
+          <ScaleFade in={true} offsetY={80} delay={0.2}>
             <Box>
               <Heading
                 as="h1"
@@ -76,11 +76,11 @@ const About = () => {
                 at DessIA where I really dived in Angular.
               </Paragraph>
             </Box>
-          </SlideFade>
+          </ScaleFade>
 
           <Divider my={10} />
 
-          <SlideFade in={true} offsetY={80} delay={0.4}>
+          <ScaleFade in={true} offsetY={80} delay={0.4}>
             <Box>
               <Heading
                 as="h1"
@@ -103,11 +103,11 @@ const About = () => {
                 ))}
               </Paragraph>
             </Box>
-          </SlideFade>
+          </ScaleFade>
 
           <Divider my={10} />
 
-          <SlideFade in={true} offsetY={80} delay={0.6}>
+          <ScaleFade in={true} offsetY={80} delay={0.6}>
             <Box>
               <Heading
                 as="h1"
@@ -130,7 +130,7 @@ const About = () => {
                 ))}
               </Paragraph>
             </Box>
-          </SlideFade>
+          </ScaleFade>
         </Container>
       </main>
     </div>

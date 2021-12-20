@@ -7,8 +7,23 @@ import {
   useColorModeValue,
   Tag,
   Stack,
+  TagLeftIcon,
 } from "@chakra-ui/react";
+import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
 import Paragraph from "./Paragraph";
+
+const handleStack = (stack) => {
+  switch (stack) {
+    case "Angular":
+      return FaAngular;
+    case "PrimeNG":
+      return FaBook;
+    case "Babylon JS":
+      return FaCube;
+    case "Figma":
+      return FaFigma;
+  }
+};
 
 const Card = ({ company }) => {
   return (
@@ -53,6 +68,7 @@ const Card = ({ company }) => {
             >
               {company.stack.map((stack) => (
                 <Tag key={stack} size="sm">
+                  <TagLeftIcon as={handleStack(stack)} />
                   {stack}
                 </Tag>
               ))}

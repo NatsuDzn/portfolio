@@ -4,21 +4,30 @@ import {
   Container,
   Grid,
   Heading,
-  IconButton,
   Image,
   Link,
-  LinkBox,
-  LinkOverlay,
-  SlideFade,
+  ScaleFade,
+  Stack,
+  Tag,
+  TagLeftIcon,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import { usePalette } from "react-palette";
+import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
+
+const handlePlatform = (platform) => {
+  switch (platform) {
+    case "mac":
+      return FaApple;
+    case "windows":
+      return FaWindows;
+    case "ios":
+      return FaAppStoreIos;
+  }
+};
 
 const Tools = ({ tools }) => {
-  const { data, loading, error } = usePalette(tools[0].fields.image);
-
   return (
     <div>
       <Head>
@@ -31,7 +40,7 @@ const Tools = ({ tools }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <ScaleFade in={true} offsetY={80}>
             <Box>
               <Heading
                 as="h1"
@@ -45,7 +54,7 @@ const Tools = ({ tools }) => {
                 List all tools
               </Paragraph>
             </Box>
-          </SlideFade>
+          </ScaleFade>
 
           {/* Should be a component */}
           <Grid
@@ -63,8 +72,9 @@ const Tools = ({ tools }) => {
                     href={tool?.fields.url}
                     rel="noopener"
                     isExternal
+                    key={index}
                   >
-                    <SlideFade in={true} offsetY={80} delay={0.2 * index}>
+                    <ScaleFade in={true} offsetY={80} delay={0.2 * index}>
                       <Box
                         p={4}
                         borderColor={useColorModeValue("gray.300", "gray.700")}
@@ -73,6 +83,7 @@ const Tools = ({ tools }) => {
                         transition=".5s"
                         cursor="pointer"
                         d="flex"
+                        alignItems="flex-start"
                         role="group"
                         _hover={{
                           borderColor: "teal.500",
@@ -105,9 +116,17 @@ const Tools = ({ tools }) => {
                           <Paragraph mt={1} fontSize="sm">
                             {tool?.fields.description}
                           </Paragraph>
+                          <Stack mt={2} direction="row" spacing="1rem">
+                            {tool.fields.platform.map((platform, index) => (
+                              <Tag key={index} size="sm">
+                                <TagLeftIcon as={handlePlatform(platform)} />
+                                {platform}
+                              </Tag>
+                            ))}
+                          </Stack>
                         </Box>
                       </Box>
-                    </SlideFade>
+                    </ScaleFade>
                   </Link>
                 ) : (
                   ""
