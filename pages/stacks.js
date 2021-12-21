@@ -24,6 +24,8 @@ import { useCallback, useState } from "react";
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
 
+  console.log(stacks)
+
   const filterStacks = useCallback(
     (tab) => {
       if (tab !== "") {        
@@ -67,7 +69,12 @@ const Stacks = ({ stacks }) => {
             </Box>
           </ScaleFade>
 
-          <Tabs variant="soft-rounded" colorScheme="teal" align="center" mt={4}>
+          <Tabs
+            variant="soft-rounded"
+            colorScheme={useColorModeValue("gray", "teal")}
+            align="center"
+            mt={4}
+          >
             <TabList flexWrap="wrap">
               <Tab onClick={() => filterStacks("")}>
                 <HStack spacing={1}>
@@ -157,7 +164,7 @@ const Stacks = ({ stacks }) => {
                             objectFit="contain"
                             rounded="md"
                             alt={stack?.fields.name}
-                            src={stack?.fields.image[0].thumbnails.small.url}
+                            src={stack?.fields.image[0].url}
                           />
                         </Box>
 

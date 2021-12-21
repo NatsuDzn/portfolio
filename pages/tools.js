@@ -4,17 +4,23 @@ import {
   Container,
   Grid,
   Heading,
+  HStack,
   Image,
   Link,
   ScaleFade,
   Stack,
+  Tab,
+  TabList,
+  Tabs,
   Tag,
   TagLeftIcon,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
+import { FaApple, FaAppStoreIos, FaLayerGroup, FaWindows } from "react-icons/fa";
+import { useCallback, useState } from "react";
 
 const handlePlatform = (platform) => {
   switch (platform) {
@@ -28,6 +34,24 @@ const handlePlatform = (platform) => {
 };
 
 const Tools = ({ tools }) => {
+
+    const [toolsList, setToolsList] = useState(tools);
+
+    const filterTools = useCallback(
+      (tab) => {
+        if (tab !== null) {
+          setToolsList(
+            tools.filter((tool) => {
+              return tool.fields.platform.includes(tab);
+            })
+          );
+        } else {
+          setToolsList(tools);
+        }
+      },
+      [tools]
+    );
+
   return (
     <div>
       <Head>
@@ -56,6 +80,36 @@ const Tools = ({ tools }) => {
             </Box>
           </ScaleFade>
 
+          <Tabs
+            variant="soft-rounded"
+            colorScheme={useColorModeValue("gray", "teal")}
+            align="center"
+            mt={4}
+          >
+            <TabList flexWrap="wrap">
+              <Tab onClick={() => filterTools(null)}>
+                <HStack spacing={1}>
+                  <FaLayerGroup />
+                  <Text>All</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterTools("mac")}>
+                <HStack spacing={1}>
+                  <FaApple />
+                  <Text>Mac</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterTools("windows")}>
+                <HStack spacing={1}>
+                  <FaWindows />
+                  <Text>Windows</Text>
+                </HStack>
+              </Tab>
+            </TabList>
+          </Tabs>
+
           {/* Should be a component */}
           <Grid
             mt={10}
@@ -63,7 +117,7 @@ const Tools = ({ tools }) => {
             templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
             gap={5}
           >
-            {tools
+            {toolsList
               ?.sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
               .map((tool, index) =>
                 tool.fields.name ? (
@@ -74,7 +128,7 @@ const Tools = ({ tools }) => {
                     isExternal
                     key={index}
                   >
-                    <ScaleFade in={true} offsetY={80} delay={0.2 * index}>
+                    <ScaleFade in={true} offsetY={80} delay={0.2}>
                       <Box
                         p={4}
                         borderColor={useColorModeValue("gray.300", "gray.700")}
