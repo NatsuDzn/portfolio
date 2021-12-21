@@ -14,7 +14,7 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./extraNavOptions/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
-import { FaBook, FaTools } from "react-icons/fa";
+import { FaBolt, FaBook, FaBookOpen, FaTools } from "react-icons/fa";
 
 const Links = [
   {
@@ -24,6 +24,11 @@ const Links = [
 ];
 
 const extraLinks = [
+    {
+    name: "Stacks",
+    route: "/stacks",
+    icon: <FaBolt />,
+  },
   {
     name: "Tools",
     route: "/tools",
@@ -33,6 +38,11 @@ const extraLinks = [
     name: "Blog",
     route: "/blog",
     icon: <FaBook />,
+  },
+    {
+    name: "Bookmarks",
+    route: "/bookmarks",
+    icon: <FaBookOpen />,
   },
 ];
 
@@ -90,7 +100,7 @@ const Navbar = () => {
               <Button
                 aria-label="Switch Theme"
                 onClick={toggleColorMode}
-                color={colorMode === "light" ? "gray.500" : "yellow.400"}
+                color={colorMode === "light" ? "purple.400" : "yellow.400"}
               >
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>

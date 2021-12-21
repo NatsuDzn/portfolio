@@ -4,38 +4,49 @@ import {
   Container,
   Grid,
   Heading,
+  HStack,
   Image,
   Link,
   ScaleFade,
   Stack,
+  Tab,
+  TabList,
+  Tabs,
   Tag,
-  TagLeftIcon,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { FaBrush, FaCloud, FaCode, FaDesktop, FaLayerGroup } from "react-icons/fa";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
+import { useCallback, useState } from "react";
 
-const handlePlatform = (platform) => {
-  switch (platform) {
-    case "mac":
-      return FaApple;
-    case "windows":
-      return FaWindows;
-    case "ios":
-      return FaAppStoreIos;
-  }
-};
+const Stacks = ({ stacks }) => {
+  const [stacksList, setStacksList] = useState(stacks);
 
-const Tools = ({ tools }) => {
+  const filterStacks = useCallback(
+    (tab) => {
+      if (tab !== "") {        
+        setStacksList(
+          stacks.filter((skill) => {
+            return skill.fields.type.includes(tab);
+          })
+        );
+      } else {
+        setStacksList(stacks);
+      }
+    },
+    [stacks]
+  );
+
   return (
     <div>
       <Head>
-        <title>Tools | Nathanael Louzoun</title>
-        <meta name="description" content="Tools | Nathanael Louzoun" />
+        <title>Stacks | Nathanael Louzoun</title>
+        <meta name="description" content="Stacks | Nathanael Louzoun" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta property="og:title" content="Tools | Nathanael Louzoun" />
+        <meta property="og:title" content="Stacks | Nathanael Louzoun" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -48,13 +59,52 @@ const Tools = ({ tools }) => {
                 textAlign="center"
                 mb={4}
               >
-                Tools
+                Stacks
               </Heading>
               <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
-                List all tools
+                Stacks list
               </Paragraph>
             </Box>
           </ScaleFade>
+
+          <Tabs variant="soft-rounded" colorScheme="teal" align="center" mt={4}>
+            <TabList flexWrap="wrap">
+              <Tab onClick={() => filterStacks("")}>
+                <HStack spacing={1}>
+                  <FaLayerGroup />
+                  <Text>All</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterStacks("Web development")}>
+                <HStack spacing={1}>
+                  <FaDesktop />
+                  <Text>Development</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterStacks("Scripting")}>
+                <HStack spacing={1}>
+                  <FaCode />
+                  <Text>Scripting</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterStacks("Devops")}>
+                <HStack spacing={1}>
+                  <FaCloud />
+                  <Text>Devops</Text>
+                </HStack>
+              </Tab>
+
+              <Tab onClick={() => filterStacks("Design")}>
+                <HStack spacing={1}>
+                  <FaBrush />
+                  <Text>Design</Text>
+                </HStack>
+              </Tab>
+            </TabList>
+          </Tabs>
 
           {/* Should be a component */}
           <Grid
@@ -63,18 +113,18 @@ const Tools = ({ tools }) => {
             templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
             gap={5}
           >
-            {tools
+            {stacksList
               ?.sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
-              .map((tool, index) =>
-                tool.fields.name ? (
+              .map((stack, index) =>
+                stack.fields.name ? (
                   <Link
                     style={{ textDecoration: "none" }}
-                    href={tool?.fields.url}
+                    href={stack?.fields.url}
                     rel="noopener"
                     isExternal
                     key={index}
                   >
-                    <ScaleFade in={true} offsetY={80} delay={0.2 * index}>
+                    <ScaleFade in={true} offsetY={80} delay={0.2}>
                       <Box
                         p={4}
                         borderColor={useColorModeValue("gray.300", "gray.700")}
@@ -104,25 +154,21 @@ const Tools = ({ tools }) => {
                           <Image
                             height="36px"
                             width="36px"
-                            layout="fixed"
+                            objectFit="contain"
                             rounded="md"
-                            alt={tool?.fields.name}
-                            src={tool?.fields.image}
+                            alt={stack?.fields.name}
+                            src={stack?.fields.image[0].thumbnails.small.url}
                           />
                         </Box>
 
                         <Box ml={4}>
                           <Heading as="h2" size="sm">
-                            {tool?.fields.name}
+                            {stack?.fields.name}
                           </Heading>
-                          <Paragraph mt={1} fontSize="sm">
-                            {tool?.fields.description}
-                          </Paragraph>
                           <Stack mt={2} direction="row" spacing="1rem">
-                            {tool.fields.platform.map((platform, index) => (
+                            {stack.fields.type.map((type, index) => (
                               <Tag key={index} size="sm">
-                                <TagLeftIcon as={handlePlatform(platform)} />
-                                {platform}
+                                {type}
                               </Tag>
                             ))}
                           </Stack>
@@ -142,14 +188,14 @@ const Tools = ({ tools }) => {
 };
 
 export async function getStaticProps() {
-  const tools = await getTable("Tools");
+  const stacks = await getTable("Stacks");
 
   return {
     props: {
-      tools,
+      stacks,
     },
     revalidate: 600,
   };
 }
 
-export default Tools;
+export default Stacks;

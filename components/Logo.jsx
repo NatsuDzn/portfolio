@@ -1,7 +1,7 @@
 import { useColorMode } from "@chakra-ui/react";
 
 const Logo = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   return (
     <svg

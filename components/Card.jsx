@@ -34,12 +34,14 @@ const Card = ({ company }) => {
         borderColor={useColorModeValue("gray.300", "gray.700")}
         borderRadius={5}
         borderWidth="1px"
-        transition=".5s"
+        transition=".25s"
         cursor="pointer"
         d="flex"
         role="group"
         _hover={{
           borderColor: "teal.500",
+          shadow: "lg",
+          transform: "translateY(-4px)"
         }}
       >
         <IconButton

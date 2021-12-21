@@ -2,15 +2,15 @@ import Head from "next/head";
 import { Box, Container, Heading, SlideFade } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 
-const Blog = () => {
+const Bookmarks = () => {
   return (
     <div>
       <Head>
-        <title>Blog | Nathanael Louzoun</title>
-        <meta name="description" content="Blog | Nathanael Louzoun" />
+        <title>Bookmarks | Nathanael Louzoun</title>
+        <meta name="description" content="Bookmarks | Nathanael Louzoun" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta property="og:title" content="Blog | Nathanael Louzoun" />
+        <meta property="og:title" content="Bookmarks | Nathanael Louzoun" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -22,10 +22,10 @@ const Blog = () => {
                 fontSize={{ base: "28px", md: "32px", lg: "36px" }}
                 mb={4}
               >
-                Blog
+                Bookmarks
               </Heading>
               <Paragraph fontSize="xl" lineHeight={1.6}>
-                Blog list
+                Bookmarks list
               </Paragraph>
             </Box>
           </SlideFade>
@@ -35,4 +35,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Bookmarks;
