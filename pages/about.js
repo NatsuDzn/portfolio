@@ -21,13 +21,6 @@ const About = () => {
     "Manga",
   ]);
 
-  const [mehStuff, setMehStuff] = useState([
-    "jQuery",
-    "Coffee",
-    "Alcohol",
-    "Backend",
-  ]);
-
   return (
     <div>
       <Head>
@@ -87,40 +80,13 @@ const About = () => {
                 fontSize={{ base: "28px", md: "32px", lg: "36px" }}
                 mb={4}
               >
-                Thing I like
+                Thing I ❤
               </Heading>
               <Paragraph fontSize="xl" lineHeight={1.6}>
                 {coolStuff.map((item) => (
                   <Tag
                     size="lg"
                     colorScheme="green"
-                    key={item}
-                    marginY={2}
-                    marginRight={2}
-                  >
-                    {item}
-                  </Tag>
-                ))}
-              </Paragraph>
-            </Box>
-          </ScaleFade>
-
-          <Divider my={10} />
-
-          <ScaleFade in={true} offsetY={80} delay={0.6}>
-            <Box>
-              <Heading
-                as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-                mb={4}
-              >
-                Thing I don’t like
-              </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6}>
-                {mehStuff.map((item) => (
-                  <Tag
-                    size="lg"
-                    colorScheme="red"
                     key={item}
                     marginY={2}
                     marginRight={2}

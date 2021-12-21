@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Box py={5} borderTop="2px" borderTopColor="teal.500">
+      <Box py={[2,5 ]} borderTop="2px" borderTopColor="teal.500" position="sticky" top={0} zIndex={1} backdropFilter="blur(10px)">
         <Container maxW="container.md">
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <IconButton
