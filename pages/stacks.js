@@ -16,19 +16,24 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaBrush, FaCloud, FaCode, FaDesktop, FaLayerGroup } from "react-icons/fa";
+import {
+  FaBrush,
+  FaCloud,
+  FaCode,
+  FaDesktop,
+  FaLayerGroup,
+} from "react-icons/fa";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import { useCallback, useState } from "react";
+import Stackcard from "../components/Stackcard";
 
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
 
-  console.log(stacks)
-
   const filterStacks = useCallback(
     (tab) => {
-      if (tab !== "") {        
+      if (tab !== null) {
         setStacksList(
           stacks.filter((skill) => {
             return skill.fields.type.includes(tab);
@@ -76,7 +81,7 @@ const Stacks = ({ stacks }) => {
             mt={4}
           >
             <TabList flexWrap="wrap">
-              <Tab onClick={() => filterStacks("")}>
+              <Tab onClick={() => filterStacks(null)}>
                 <HStack spacing={1}>
                   <FaLayerGroup />
                   <Text>All</Text>
@@ -113,7 +118,7 @@ const Stacks = ({ stacks }) => {
             </TabList>
           </Tabs>
 
-          {/* Should be a component */}
+          {!stacksList.length && "No stacks found."}
           <Grid
             mt={10}
             alignItems="center"
@@ -121,72 +126,10 @@ const Stacks = ({ stacks }) => {
             gap={5}
           >
             {stacksList
-              ?.sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
-              .map((stack, index) =>
-                stack.fields.name ? (
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    href={stack?.fields.url}
-                    rel="noopener"
-                    isExternal
-                    key={index}
-                  >
-                    <ScaleFade in={true} offsetY={80} delay={0.2}>
-                      <Box
-                        p={4}
-                        borderColor={useColorModeValue("gray.300", "gray.700")}
-                        borderRadius={5}
-                        borderWidth="1px"
-                        transition=".25s"
-                        cursor="pointer"
-                        d="flex"
-                        alignItems="flex-start"
-                        role="group"
-                        _hover={{
-                          borderColor: "teal.500",
-                          shadow: "lg",
-                          transform: "translateY(-4px)",
-                        }}
-                      >
-                        <Box
-                          p={2}
-                          borderColor={useColorModeValue(
-                            "gray.300",
-                            "gray.700"
-                          )}
-                          borderRadius="lg"
-                          borderWidth="1px"
-                          transition=".5s"
-                        >
-                          <Image
-                            height="36px"
-                            width="36px"
-                            objectFit="contain"
-                            rounded="md"
-                            alt={stack?.fields.name}
-                            src={stack?.fields.image[0].url}
-                          />
-                        </Box>
-
-                        <Box ml={4}>
-                          <Heading as="h2" size="sm">
-                            {stack?.fields.name}
-                          </Heading>
-                          <Stack mt={2} direction="row" spacing="1rem">
-                            {stack.fields.type.map((type, index) => (
-                              <Tag key={index} size="sm">
-                                {type}
-                              </Tag>
-                            ))}
-                          </Stack>
-                        </Box>
-                      </Box>
-                    </ScaleFade>
-                  </Link>
-                ) : (
-                  ""
-                )
-              )}
+              .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
+              .map((stack, index) => (
+                <Stackcard stack={stack} key={index} />
+              ))}
           </Grid>
         </Container>
       </main>

@@ -8,6 +8,7 @@ import {
   useDisclosure,
   Stack,
   Container,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "./extraNavOptions/Link";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
@@ -24,7 +25,7 @@ const Links = [
 ];
 
 const extraLinks = [
-    {
+  {
     name: "Stacks",
     route: "/stacks",
     icon: <FaBolt />,
@@ -39,7 +40,7 @@ const extraLinks = [
     route: "/blog",
     icon: <FaBook />,
   },
-    {
+  {
     name: "Bookmarks",
     route: "/bookmarks",
     icon: <FaBookOpen />,
@@ -72,7 +73,18 @@ const Navbar = () => {
 
   return (
     <>
-      <Box py={[2,5 ]} borderTop="2px" borderTopColor="teal.500" position="sticky" top={0} zIndex={1} backdropFilter="blur(10px)">
+      <Box
+        as="nav"
+        py={2}
+        borderTop="2px"
+        borderTopColor="teal.500"
+        bg={useColorModeValue("#FFFFFF40", "#1B202C80")}
+        css={{ backdropFilter: "blur(10px)" }}
+        position="sticky"
+        top={0}
+        zIndex={1}
+        filter="auto"
+      >
         <Container maxW="container.md">
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <IconButton
@@ -100,9 +112,9 @@ const Navbar = () => {
               <Button
                 aria-label="Switch Theme"
                 onClick={toggleColorMode}
-                color={colorMode === "light" ? "purple.400" : "yellow.400"}
+                color={useColorModeValue("purple.400", "yellow.400")}
               >
-                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                {useColorModeValue(<MoonIcon />, <SunIcon />)}
               </Button>
             </Flex>
           </Flex>
