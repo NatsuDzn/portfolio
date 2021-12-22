@@ -1,8 +1,11 @@
 import Head from "next/head";
-import { Box, Container, Heading, SlideFade } from "@chakra-ui/react";
+import { Box, Container, Grid, Heading, SlideFade } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
+import { getTable } from "../lib/airtable";
+import Blogcard from "../components/Blogcard";
+import sorter from "sort-isostring";
 
-const Blog = () => {
+const Blog = ({ articles }) => {
   return (
     <div>
       <Head>
@@ -29,10 +32,40 @@ const Blog = () => {
               </Paragraph>
             </Box>
           </SlideFade>
+
+          {!articles.length && "No article found."}
+          <Grid
+            mt={10}
+            alignItems="center"
+            templateColumns={["repeat(2, 1fr)"]}
+            gap={5}
+          >
+            {articles
+              .filter((article) => article.fields.status === "Published")
+              .sort((x, y) =>
+                sorter(y.fields.publishDate, x.fields.publishDate)
+              )
+              .map((article) => {
+                return (
+                  <Blogcard article={article} key={article.id} />
+                );
+              })}
+          </Grid>
         </Container>
       </main>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const articles = await getTable("Blog");
+
+  return {
+    props: {
+      articles,
+    },
+    revalidate: 600,
+  };
+}
 
 export default Blog;
