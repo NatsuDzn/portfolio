@@ -7,7 +7,6 @@ const Link = ({ children, href, currentPath, ...props }) => (
       bg={href === currentPath && useColorModeValue("gray.100", "gray.700")}
       _hover={{
         textDecoration: "none",
-        bg: useColorModeValue("gray.200", "gray.700"),
       }}
       {...props}
     >
