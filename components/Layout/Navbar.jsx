@@ -16,6 +16,8 @@ import DropdownMenu from "./extraNavOptions/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
 import { FaBolt, FaBook, FaBookOpen, FaTools } from "react-icons/fa";
+import useSound from "use-sound";
+import { useCallback } from "react";
 
 const Links = [
   {
@@ -53,6 +55,21 @@ const Navbar = () => {
 
   let router = useRouter();
   let { asPath } = router;
+
+  const [play] = useSound("/assets/audios/lightswitch.mp3", {
+    volume: 0.05,
+    sprite: {
+      on: [0, 100],
+    },
+  });
+
+  const switchTheme = useCallback(
+    () => {
+      toggleColorMode();
+      play({ id: "on" });
+    },
+    [toggleColorMode, play]
+  );
 
   const navigationItem = (
     <>
@@ -111,7 +128,7 @@ const Navbar = () => {
             <Flex alignItems={"center"}>
               <Button
                 aria-label="Switch Theme"
-                onClick={toggleColorMode}
+                onClick={() => switchTheme()}
                 color={useColorModeValue("purple.400", "yellow.400")}
               >
                 {useColorModeValue(<MoonIcon />, <SunIcon />)}

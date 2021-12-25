@@ -54,7 +54,7 @@ const Blogcard = ({ article }) => {
           </AspectRatio>
 
           <Box ml={4}>
-            <Heading as="h1" size="md">
+            <Heading as="h1" size="md" noOfLines={1}>
               {article?.fields.title}
             </Heading>
             <Paragraph mt={1} fontSize="sm" noOfLines={1}>

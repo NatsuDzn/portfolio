@@ -38,7 +38,7 @@ export default function Home() {
                   mb={8}
                   size="2xl"
                   name="Nathanael Louzoun"
-                  src="/assets/home.jpg"
+                  src="/assets/images/home.jpg"
                 />
               </Center>
 

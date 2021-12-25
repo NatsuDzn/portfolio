@@ -32,7 +32,7 @@ export default function Custom404() {
                   mb={8}
                   size="2xl"
                   name="Nathanael Louzoun"
-                  src="/assets/404.jpg"
+                  src="/assets/images/404.jpg"
                 />
               </Center>
               <Heading as="h1" my={3}>
