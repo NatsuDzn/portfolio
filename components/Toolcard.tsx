@@ -31,7 +31,7 @@ const Toolcard = ({ tool }) => {
       rel="noopener"
       isExternal
     >
-      <ScaleFade in={true} offsetY={80} delay={0.2}>
+      <ScaleFade in={true} delay={0.2}>
         <Box
           p={4}
           borderColor={useColorModeValue("gray.300", "gray.700")}

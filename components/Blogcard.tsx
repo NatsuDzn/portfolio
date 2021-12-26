@@ -13,14 +13,15 @@ import Link from "./Layout/extraNavOptions/Link";
 import Paragraph from "./Paragraph";
 import { format } from "timeago.js";
 import { FaRegClock } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const Blogcard = ({ article }) => {
+  let router = useRouter();
+  let { asPath } = router;
+
   return (
-    <Link
-      href={`/blog/${article?.fields.slug}`}
-      unstyled
-    >
-      <ScaleFade in={true} offsetY={80} delay={0.2}>
+    <Link href={`/blog/${article?.fields.slug}`} currentPath={asPath} unstyled>
+      <ScaleFade in={true} delay={0.2}>
         <VStack
           p={4}
           borderColor={useColorModeValue("gray.300", "gray.700")}

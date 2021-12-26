@@ -25,7 +25,7 @@ export default function Custom404() {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <SlideFade in={true}>
             <Box>
               <Center direction="column" alignItems="center">
                 <Avatar

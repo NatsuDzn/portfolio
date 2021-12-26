@@ -6,10 +6,14 @@ import {
   Button,
   MenuItem,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { FaAngleDown } from "react-icons/fa";
 import Link from "./Link";
 
 const DropdownMenu = ({ currentPath, extraLinks }) => {
+  let router = useRouter();
+  let { asPath } = router;
+
   return (
     <Menu autoSelect={false}>
       <MenuButton
@@ -32,7 +36,7 @@ const DropdownMenu = ({ currentPath, extraLinks }) => {
       <MenuList bg={useColorModeValue("gray.50", "gray.800")}>
         {extraLinks &&
           extraLinks?.map(({ name, route, icon }) => (
-            <Link href={route} key={name}>
+            <Link href={route} key={name} currentPath={asPath}>
               <MenuItem
                 icon={icon}
                 bg={

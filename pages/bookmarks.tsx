@@ -15,7 +15,7 @@ const Bookmarks = () => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <SlideFade in={true}>
             <Box>
               <Heading
                 as="h1"

@@ -22,7 +22,7 @@ const companies = [
 
 const Company = () => {
   return (
-    <ScaleFade in={true} offsetY={80} delay={0.2}>
+    <ScaleFade in={true} delay={0.2}>
       <Heading
         as="h1"
         fontSize={{ base: "24px", md: "30px", lg: "36px" }}

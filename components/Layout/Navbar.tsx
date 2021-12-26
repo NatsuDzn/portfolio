@@ -112,7 +112,7 @@ const Navbar = () => {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={"center"}>
-              <Link href="/" key="Home" p={2} rounded={"md"}>
+              <Link href="/" key="Home" p={2} rounded={"md"} currentPath={asPath}>
                 <Box>
                   <Logo />
                 </Box>

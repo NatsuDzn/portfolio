@@ -4,6 +4,7 @@ import { Container, Heading } from "@chakra-ui/react";
 import { getAllPostsPaths, getPostData } from "../../lib/airtable";
 import MDXComponents from "../../components/MDX";
 import Head from "next/head";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 export default function Blog({ source, post }) {
   return (
@@ -31,7 +32,7 @@ export default function Blog({ source, post }) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostsPaths();
 
   return {
@@ -40,7 +41,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({params}) => {
   const postData = await getPostData(params.slug);
 
   const mdxSource = await serialize(postData.post[0].fields.mdx);

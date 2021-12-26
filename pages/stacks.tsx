@@ -23,6 +23,7 @@ import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import { useCallback, useState } from "react";
 import Stackcard from "../components/Stackcard";
+import { GetStaticProps } from "next";
 
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
@@ -54,7 +55,7 @@ const Stacks = ({ stacks }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true} offsetY={80}>
+          <ScaleFade in={true}>
             <Box>
               <Heading
                 as="h1"
@@ -133,7 +134,7 @@ const Stacks = ({ stacks }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async (context) => {
   const stacks = await getTable("Stacks");
 
   return {

@@ -33,7 +33,7 @@ const About = () => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true} offsetY={80}>
+          <ScaleFade in={true}>
             <Box>
               <Heading
                 as="h1"
@@ -53,7 +53,7 @@ const About = () => {
 
           <Divider my={10} />
 
-          <ScaleFade in={true} offsetY={80} delay={0.2}>
+          <ScaleFade in={true} delay={0.2}>
             <Box>
               <Heading
                 as="h1"
@@ -73,7 +73,7 @@ const About = () => {
 
           <Divider my={10} />
 
-          <ScaleFade in={true} offsetY={80} delay={0.4}>
+          <ScaleFade in={true} delay={0.4}>
             <Box>
               <Heading
                 as="h1"

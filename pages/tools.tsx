@@ -17,6 +17,7 @@ import { getTable } from "../lib/airtable";
 import { FaApple, FaLayerGroup, FaWindows } from "react-icons/fa";
 import { useCallback, useState } from "react";
 import Toolcard from "../components/Toolcard";
+import { GetStaticProps } from "next";
 
 const Tools = ({ tools }) => {
   const [toolsList, setToolsList] = useState(tools);
@@ -48,7 +49,7 @@ const Tools = ({ tools }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true} offsetY={80}>
+          <ScaleFade in={true}>
             <Box>
               <Heading
                 as="h1"
@@ -113,7 +114,7 @@ const Tools = ({ tools }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async (context) => {
   const tools = await getTable("Tools");
 
   return {

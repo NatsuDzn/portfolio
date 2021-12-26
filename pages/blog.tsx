@@ -4,6 +4,7 @@ import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import Blogcard from "../components/Blogcard";
 import sorter from "sort-isostring";
+import { GetStaticProps } from "next";
 
 const Blog = ({ articles }) => {
   return (
@@ -18,7 +19,7 @@ const Blog = ({ articles }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true} offsetY={80}>
+          <SlideFade in={true}>
             <Box>
               <Heading
                 as="h1"
@@ -57,7 +58,7 @@ const Blog = ({ articles }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async (context) => {
   const articles = await getTable("Blog");
 
   return {

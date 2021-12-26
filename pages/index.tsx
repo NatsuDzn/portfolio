@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true} offsetY={80}>
+          <ScaleFade in={true}>
             <Box>
               <Center>
                 <Avatar
