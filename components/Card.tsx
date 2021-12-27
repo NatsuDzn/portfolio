@@ -10,6 +10,7 @@ import {
   TagLeftIcon,
 } from "@chakra-ui/react";
 import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
+import { IconType } from "react-icons/lib";
 import Paragraph from "./Paragraph";
 
 const handleStack = (stack) => {
@@ -41,7 +42,7 @@ const Card = ({ company }) => {
         _hover={{
           borderColor: "teal.500",
           shadow: "lg",
-          transform: "translateY(-4px)"
+          transform: "translateY(-4px)",
         }}
       >
         <IconButton

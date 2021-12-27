@@ -7,10 +7,23 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { FunctionComponent } from "react";
 import { FaAngleDown } from "react-icons/fa";
+import { IconType } from "react-icons/lib";
 import Link from "./Link";
 
-const DropdownMenu = ({ currentPath, extraLinks }) => {
+type DropdownProps = {
+  currentPath: string;
+  extraLinks: extraLinks[];
+}
+
+interface extraLinks {
+  name: string;
+  route: string;
+  icon: IconType | any;
+}
+
+const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLinks }) => {
   let router = useRouter();
   let { asPath } = router;
 

@@ -15,12 +15,52 @@ import { format } from "timeago.js";
 import { FaRegClock } from "react-icons/fa";
 import { useRouter } from "next/router";
 
-const Blogcard = ({ article }) => {
+interface Article {
+  article: {
+    id: string;
+    fields: Fields;
+  };
+}
+
+interface Fields {
+  title: string;
+  mdx: string;
+  summary: string;
+  publishDate: Date;
+  status: string;
+  thumbnail: Thumbnail[];
+  slug: string;
+}
+
+interface Thumbnail {
+  id: string;
+  width: number;
+  height: number;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+  thumbnails: Thumbnails;
+}
+
+interface Thumbnails {
+  small: Full;
+  large: Full;
+  full: Full;
+}
+
+interface Full {
+  url: string;
+  width: number;
+  height: number;
+}
+
+const Blogcard = ({ article }: Article) => {
   let router = useRouter();
   let { asPath } = router;
 
   return (
-    <Link href={`/blog/${article?.fields.slug}`} currentPath={asPath} unstyled>
+    <Link href={`/blog/${article?.fields.slug}`} currentPath={asPath}>
       <ScaleFade in={true} delay={0.2}>
         <VStack
           p={4}

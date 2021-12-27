@@ -1,7 +1,8 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { PropsWithChildren } from "react";
 
-const index = ({ children }) => {
+const index = ({ children }: PropsWithChildren<{}>) => {
   return (
     <>
       <Navbar />
