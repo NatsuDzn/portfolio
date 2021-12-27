@@ -10,7 +10,6 @@ import {
   TagLeftIcon,
 } from "@chakra-ui/react";
 import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
 import Paragraph from "./Paragraph";
 
 const handleStack = (stack) => {
