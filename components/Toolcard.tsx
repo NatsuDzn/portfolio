@@ -7,8 +7,8 @@ import {
   TagLeftIcon,
   Link,
   ScaleFade,
-  Image,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
 import Paragraph from "./Paragraph";
 
@@ -54,14 +54,13 @@ const Toolcard = ({ tool }) => {
             borderRadius="lg"
             borderWidth="1px"
             transition=".5s"
+            display="flex"
           >
             <Image
-              height="36px"
-              width="36px"
-              layout="fixed"
-              rounded="md"
+              height={36}
+              width={36}
               alt={tool?.fields.name}
-              src={tool?.fields.image}
+              src={tool?.fields.image[0].url}
             />
           </Box>
 

@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Box,
   Heading,
-  Image,
   ScaleFade,
   Tag,
   TagLeftIcon,
@@ -14,6 +13,7 @@ import Paragraph from "./Paragraph";
 import { format } from "timeago.js";
 import { FaRegClock } from "react-icons/fa";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 interface Article {
   article: {
@@ -88,9 +88,10 @@ const Blogcard = ({ article }: Article) => {
             borderColor={useColorModeValue("gray.300", "gray.700")}
           >
             <Image
-              src={article?.fields.thumbnail[0].url}
-              objectFit="cover"
               alt={article?.fields.title}
+              src={article?.fields.thumbnail[0].url}
+              layout="fill"
+              objectFit="cover"
             />
           </AspectRatio>
 

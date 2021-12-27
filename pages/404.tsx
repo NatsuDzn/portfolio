@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Center,
@@ -10,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Head from "next/head";
+import Image from "next/image";
 import NextLink from "next/link";
 
 export default function Custom404() {
@@ -28,12 +28,15 @@ export default function Custom404() {
           <SlideFade in={true}>
             <Box>
               <Center direction="column" alignItems="center">
-                <Avatar
-                  mb={8}
-                  size="2xl"
-                  name="Nathanael Louzoun"
-                  src="/assets/images/404.jpg"
-                />
+                <Box borderRadius="full" overflow="hidden" width={128} height={128}>
+                  <Image
+                    width={256}
+                    height={256}
+                    objectFit="cover"
+                    alt="test"
+                    src="/assets/images/404.jpg"
+                  />
+                </Box>
               </Center>
               <Heading as="h1" my={3}>
                 Not Found

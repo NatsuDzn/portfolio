@@ -5,12 +5,12 @@ import {
   Heading,
   ScaleFade,
   Divider,
-  Avatar,
   Center,
 } from "@chakra-ui/react";
 
 import Paragraph from "../components/Paragraph";
 import Company from "../components/pages/Company";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -34,12 +34,15 @@ export default function Home() {
           <ScaleFade in={true}>
             <Box>
               <Center>
-                <Avatar
-                  mb={8}
-                  size="2xl"
-                  name="Nathanael Louzoun"
-                  src="/assets/images/home.jpg"
-                />
+                <Box borderRadius="full" overflow="hidden" width={128} height={128}>
+                  <Image
+                    width={256}
+                    height={256}
+                    objectFit="cover"
+                    alt="test"
+                    src="/assets/images/me.jpg"
+                  />
+                </Box>
               </Center>
 
               <Heading

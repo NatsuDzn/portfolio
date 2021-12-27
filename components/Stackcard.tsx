@@ -6,8 +6,8 @@ import {
   Stack,
   Link,
   ScaleFade,
-  Image,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 const Stackcard = ({ stack }) => {
   return (
@@ -40,12 +40,11 @@ const Stackcard = ({ stack }) => {
             borderRadius="lg"
             borderWidth="1px"
             transition=".5s"
+            display="flex"
           >
             <Image
-              height="36px"
-              width="36px"
-              objectFit="contain"
-              rounded="md"
+              height={36}
+              width={36}
               alt={stack?.fields.name}
               src={stack?.fields.image[0].url}
             />
