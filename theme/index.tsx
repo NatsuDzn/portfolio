@@ -14,6 +14,10 @@ const styles = {
       'body::-webkit-scrollbar-thumb': {
         backgroundColor: mode('black', 'teal.500')(props),
       },
+      '::selection': {
+        backgroundColor: mode('black', 'teal.500')(props),
+        color: 'white',
+      }
     }),
   },
 }

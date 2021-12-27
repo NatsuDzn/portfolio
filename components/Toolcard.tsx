@@ -43,7 +43,7 @@ const Toolcard = ({ tool }) => {
           alignItems="flex-start"
           role="group"
           _hover={{
-            borderColor: "teal.500",
+            borderColor: useColorModeValue("black", "teal.500"),
             shadow: "lg",
             transform: "translateY(-4px)",
           }}

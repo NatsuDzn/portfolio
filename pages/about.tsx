@@ -67,6 +67,7 @@ const About = () => {
                 my 1st year. I have started to work for ThingType where I
                 learned about Angular. During my second and last year I worked
                 at DessIA where I really dived in Angular.
+                After my internship DessIA hired me full time.
               </Paragraph>
             </Box>
           </ScaleFade>

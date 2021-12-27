@@ -39,7 +39,7 @@ const Card = ({ company }) => {
         d="flex"
         role="group"
         _hover={{
-          borderColor: "teal.500",
+          borderColor: useColorModeValue("black", "teal.500"),
           shadow: "lg",
           transform: "translateY(-4px)",
         }}
@@ -50,7 +50,8 @@ const Card = ({ company }) => {
           rel="noopener"
           aria-label={company?.name}
           mr={3}
-          _groupHover={{ color: "teal.500" }}
+          color={useColorModeValue("gray.600", "white")}
+          _groupHover={{ color: useColorModeValue("black", "teal.500") }}
           icon={company?.icon}
         />
         <Box>
