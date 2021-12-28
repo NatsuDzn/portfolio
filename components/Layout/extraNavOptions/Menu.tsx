@@ -26,6 +26,8 @@ interface extraLinks {
 const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLinks }) => {
   let router = useRouter();
   let { asPath } = router;
+  
+  const activeColor = useColorModeValue("gray.200", "gray.700");
 
   return (
     <Menu autoSelect={false}>
@@ -54,7 +56,7 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
                 icon={icon}
                 bg={
                   currentPath === route &&
-                  useColorModeValue("gray.200", "gray.700")
+                  activeColor
                 }
               >
                 {name}

@@ -11,7 +11,13 @@ import {
 import Image from "next/image";
 import NextLink from "next/link";
 
-const Error = ({ title, subtitle, errorType="" }) => {
+interface ErrorProps {
+  title: string;
+  subtitle: string;
+  errorType?: string;
+}
+
+const Error = ({ title, subtitle, errorType="" }: ErrorProps) => {
   return (
     <Container maxW="container.md" mt={10}>
       <SlideFade in={true}>
