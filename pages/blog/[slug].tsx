@@ -2,11 +2,13 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { Container, Heading } from "@chakra-ui/react";
 import { getAllPostsPaths, getPostData } from "../../lib/airtable";
+import readingTime from "reading-time";
 import MDXComponents from "../../components/MDX";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Bloglayout from "../../components/Layout/Bloglayout";
 
-export default function Blog({ source, post }) {
+export default function Blog({ source, post, frontMatter }) {
   return (
     <div>
       <Head>
@@ -25,7 +27,9 @@ export default function Blog({ source, post }) {
           fontSize={{ base: "28px", md: "32px", lg: "36px" }}
           mb={4}
         >
-          <MDXRemote {...source} components={MDXComponents} />
+          <Bloglayout frontMatter={frontMatter}>
+            <MDXRemote {...source} components={MDXComponents} />
+          </Bloglayout>
         </Heading>
       </Container>
     </div>
@@ -39,9 +43,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths,
     fallback: "blocking",
   };
-}
+};
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.slug);
 
   const mdxSource = await serialize(postData.post[0].fields.mdx);
@@ -49,8 +53,13 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
   return {
     props: {
       source: mdxSource,
-      post: postData.post[0]
+      post: postData.post[0],
+      frontMatter: {
+        wordCount: postData.post[0].fields.mdx.split(/\s+/gu).length,
+        readingTime: readingTime(postData.post[0].fields.mdx),
+        ...postData.post[0].fields,
+      },
     },
     revalidate: 10,
   };
-}
+};

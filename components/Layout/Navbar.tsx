@@ -106,7 +106,7 @@ const Navbar = () => {
           <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
             <IconButton
               size={"md"}
-              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              icon={isOpen ? <CloseIcon boxSize="12px" /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
               display={{ md: !isOpen ? "none" : "inherit" }}
               onClick={isOpen ? onClose : onOpen}

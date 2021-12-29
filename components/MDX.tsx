@@ -22,7 +22,6 @@ const Table = (props) => (
 const THead = (props) => (
   <chakra.th
     bg={useColorModeValue("neutral.50", "whiteAlpha.100")}
-    fontWeight="semibold"
     p={2}
     fontSize="sm"
     {...props}
@@ -36,6 +35,7 @@ const TData = (props) => (
     borderColor="inherit"
     fontSize="sm"
     whiteSpace="normal"
+    fontWeight="semibold"
     {...props}
   />
 );
@@ -104,20 +104,6 @@ const Tstrong = (props) => {
   return <Text as="strong" color={textColor[colorMode]} {...props} />;
 };
 
-const Tparagraph = (props) => {
-  const { colorMode } = useColorMode();
-
-  return (
-    <Text
-      as="p"
-      mt={4}
-      fontSize="16px"
-      fontWeight={colorMode === "light" ? "500" : "normal"}
-      {...props}
-    />
-  );
-};
-
 const MDXComponents = {
   h1: (props) => <Heading as="h1" size="4xl" my={4} {...props} />,
   h2: (props) => <Heading as="h2" size="xl" my={4} {...props} />,
@@ -125,18 +111,8 @@ const MDXComponents = {
   h4: (props) => <Heading as="h4" size="md" my={4} {...props} />,
   h5: (props) => <Heading as="h5" size="sm" my={4} {...props} />,
   h6: (props) => <Heading as="h6" size="xs" my={4} {...props} />,
-  inlineCode: (props) => (
-    <Code
-      colorScheme="white"
-      {...props}
-    />
-  ),
-  code: (props) => (
-    <Code
-      colorScheme="white"
-      {...props}
-    />
-  ),
+  inlineCode: (props) => <Code colorScheme="white" {...props} />,
+  code: (props) => <Code colorScheme="white" {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,
@@ -145,14 +121,14 @@ const MDXComponents = {
   td: TData,
   a: CustomLink,
   img: TImage,
-  p: Tparagraph,
+  p: (props) => <Text as="p" mt={4} fontWeight="normal" fontSize="1rem" {...props} />,
   ul: (props) => (
-    <Box as="ul" pt={2} fontSize="17.5px" pl={4} ml={2} {...props} />
+    <Box as="ul" pt={2} fontSize="1rem" fontWeight="normal" pl={4} ml={2} {...props} />
   ),
   ol: (props) => (
-    <Box as="ol" pt={2} fontSize="17.5px" pl={4} ml={2} {...props} />
+    <Box as="ol" pt={2} fontSize="1rem" fontWeight="normal" pl={4} ml={2} {...props} />
   ),
-  li: (props) => <Box as="li" pb={1} fontSize="17.5px" {...props} />,
+  li: (props) => <Box as="li" pb={1} fontSize="1rem" fontWeight="normal" {...props} />,
   strong: Tstrong,
   blockquote: Quote,
 };
