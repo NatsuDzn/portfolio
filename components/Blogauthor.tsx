@@ -17,13 +17,13 @@ const Blogauthor = ({ readingTime, publishedAt, url, ...props }) => {
   return (
     <Stack direction="row" justify="space-between" {...props}>
       <HStack>
-        <Avatar src="/assets/images/me.jpg" h={10} w={10}></Avatar>
+        <Avatar name="Nathanael Louzoun" src="/assets/images/me.jpg" h={10} w={10}></Avatar>
         <VStack spacing={0} align="start">
           <Text fontSize="md" fontWeight="medium">
             Nathanael Louzoun
           </Text>
           <Text fontSize="xs" fontWeight="normal">
-            {format(publishedAt)} / {readingTime} read
+            {format(publishedAt)} / {readingTime} 
           </Text>
         </VStack>
       </HStack>

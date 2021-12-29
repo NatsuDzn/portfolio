@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { useState } from "react";
-import Blogauthor from "../components/Blogauthor";
 
 const About = () => {
   const [coolStuff, setCoolStuff] = useState([
@@ -35,9 +34,6 @@ const About = () => {
       <main>
         <Container maxW="container.md" mt={10}>
           <ScaleFade in={true}>
-
-            <Blogauthor readingTime="3 mins" publishedAt="2021-12-22T19:29:00.000Z" url="test" />
-
             <Box>
               <Heading
                 as="h1"

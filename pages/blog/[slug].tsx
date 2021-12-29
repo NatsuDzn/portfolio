@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
-import { Container, Heading } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import { getAllPostsPaths, getPostData } from "../../lib/airtable";
 import readingTime from "reading-time";
 import MDXComponents from "../../components/MDX";
@@ -22,15 +22,9 @@ export default function Blog({ source, post, frontMatter }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="container.md" mt={10}>
-        <Heading
-          as="h1"
-          fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-          mb={4}
-        >
-          <Bloglayout frontMatter={frontMatter}>
-            <MDXRemote {...source} components={MDXComponents} />
-          </Bloglayout>
-        </Heading>
+        <Bloglayout frontMatter={frontMatter}>
+          <MDXRemote {...source} components={MDXComponents} />
+        </Bloglayout>
       </Container>
     </div>
   );
