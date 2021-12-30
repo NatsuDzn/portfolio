@@ -6,21 +6,39 @@ import readingTime from "reading-time";
 import MDXComponents from "../../components/MDX";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from 'next-seo';
 import Bloglayout from "../../components/Layout/Bloglayout";
 
 export default function Blog({ source, post, frontMatter }) {
   return (
     <div>
-      <Head>
-        <title>{post.fields.title}</title>
-        <meta property="og:type" content="website" />
-        <meta name="robots" content="follow, index" />
-        <meta property="og:title" content={post.fields.title} />
-        <meta name="og:description" content={post.fields.summary} />
-        <meta name="description" content={post.fields.summary} />
-        <meta name="og:image" content={post.fields.thumbnail[0].url} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      
+      <NextSeo
+        title={post?.fields.title}
+        description={post?.fields.summary}
+        canonical=''
+        openGraph={{
+          url: 'https://nathanael-louzoun.vercel.app/',
+          title: post?.fields.title,
+          description: post?.fields.summary,
+          images: [
+            {
+              url: post.fields.thumbnail[0].url,
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt',
+            },
+          ],
+          site_name: 'SiteName',
+        }}
+        twitter={{
+          handle: '@NatsuDzn',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+
       <Container maxW="container.md" mt={10}>
         <Bloglayout frontMatter={frontMatter}>
           <MDXRemote {...source} components={MDXComponents} />
