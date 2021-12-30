@@ -14,10 +14,11 @@ import {
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import { FaApple, FaLayerGroup, FaWindows } from "react-icons/fa";
+import { FaApple, FaWindows } from "react-icons/fa";
 import { useCallback, useState } from "react";
 import Toolcard from "../components/Toolcard";
 import { GetStaticProps } from "next";
+import { HiCollection } from "react-icons/hi";
 
 const Tools = ({ tools }) => {
   const [toolsList, setToolsList] = useState(tools);
@@ -74,7 +75,7 @@ const Tools = ({ tools }) => {
             <TabList flexWrap="wrap">
               <Tab onClick={() => filterTools(null)}>
                 <HStack spacing={1}>
-                  <FaLayerGroup />
+                  <HiCollection fontSize="18px" />
                   <Text>All</Text>
                 </HStack>
               </Tab>
@@ -121,7 +122,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       tools,
     },
-    revalidate: 600,
+    revalidate: 10,
   };
 }
 

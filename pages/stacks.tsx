@@ -12,18 +12,12 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  FaBrush,
-  FaCloud,
-  FaCode,
-  FaDesktop,
-  FaLayerGroup,
-} from "react-icons/fa";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import { useCallback, useState } from "react";
 import Stackcard from "../components/Stackcard";
 import { GetStaticProps } from "next";
+import { HiCloud, HiCode, HiCollection, HiColorSwatch, HiDesktopComputer } from "react-icons/hi";
 
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
@@ -80,35 +74,35 @@ const Stacks = ({ stacks }) => {
             <TabList flexWrap="wrap">
               <Tab onClick={() => filterStacks(null)}>
                 <HStack spacing={1}>
-                  <FaLayerGroup />
+                  <HiCollection fontSize="20px" />
                   <Text>All</Text>
                 </HStack>
               </Tab>
 
               <Tab onClick={() => filterStacks("Web development")}>
                 <HStack spacing={1}>
-                  <FaDesktop />
+                  <HiDesktopComputer fontSize="20px" />
                   <Text>Development</Text>
                 </HStack>
               </Tab>
 
               <Tab onClick={() => filterStacks("Scripting")}>
                 <HStack spacing={1}>
-                  <FaCode />
+                  <HiCode fontSize="20px" />
                   <Text>Scripting</Text>
                 </HStack>
               </Tab>
 
               <Tab onClick={() => filterStacks("Devops")}>
                 <HStack spacing={1}>
-                  <FaCloud />
+                  <HiCloud fontSize="20px" />
                   <Text>Devops</Text>
                 </HStack>
               </Tab>
 
               <Tab onClick={() => filterStacks("Design")}>
                 <HStack spacing={1}>
-                  <FaBrush />
+                  <HiColorSwatch fontSize="20px" />
                   <Text>Design</Text>
                 </HStack>
               </Tab>
@@ -141,7 +135,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       stacks,
     },
-    revalidate: 600,
+    revalidate: 10,
   };
 }
 

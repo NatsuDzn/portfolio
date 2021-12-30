@@ -1,3 +1,4 @@
+import { EmailIcon } from "@chakra-ui/icons";
 import {
   Divider,
   HStack,
@@ -6,13 +7,9 @@ import {
   Stack,
   Text,
   Tooltip,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  FaEnvelope,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Blogfooter = ({ url, ...props }) => {
   const shares = [
@@ -35,8 +32,8 @@ const Blogfooter = ({ url, ...props }) => {
       url: "https://www.linkedin.com/sharing/share-offsite/?url=" + url,
     },
     {
-      name: "mail",
-      icon: <FaEnvelope />,
+      name: "Email",
+      icon: <EmailIcon />,
       brandBackground: "gray.600",
       url: "mailto:?body=" + url,
     },
@@ -60,6 +57,9 @@ const Blogfooter = ({ url, ...props }) => {
                   aria-label="Share this post"
                   variant="solid"
                   color="white"
+                  _hover={{
+                    color: null,
+                  }}
                   background={share.brandBackground}
                   size="sm"
                   icon={share.icon}

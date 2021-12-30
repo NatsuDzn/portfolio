@@ -8,12 +8,12 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import Link from "./Layout/extraNavOptions/Link";
+import Link from "./Layout/nav/Link";
 import Paragraph from "./Paragraph";
 import { format } from "timeago.js";
-import { FaRegClock } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { HiClock } from "react-icons/hi";
 
 interface Article {
   article: {
@@ -103,7 +103,7 @@ const Blogcard = ({ article }: Article) => {
               {article?.fields.summary}
             </Paragraph>
             <Tag mt={2} size="sm">
-              <TagLeftIcon boxSize="12px" as={FaRegClock} />
+              <TagLeftIcon boxSize="12px" as={HiClock} />
               {format(article?.fields.publishDate)}
             </Tag>
           </Box>

@@ -10,12 +10,12 @@ import {
   Container,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Link from "./extraNavOptions/Link";
+import Link from "./nav/Link";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import DropdownMenu from "./extraNavOptions/Menu";
+import DropdownMenu from "./nav/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
-import { FaBolt, FaBook, FaBookOpen, FaTools } from "react-icons/fa";
+import { HiBeaker, HiBookmark, HiBookOpen, HiLightningBolt } from "react-icons/hi";
 import useSound from "use-sound";
 import { useCallback } from "react";
 
@@ -30,22 +30,22 @@ const extraLinks = [
   {
     name: "Stacks",
     route: "/stacks",
-    icon: <FaBolt />,
+    icon: <HiLightningBolt />,
   },
   {
     name: "Tools",
     route: "/tools",
-    icon: <FaTools />,
+    icon: <HiBeaker />,
   },
   {
     name: "Blog",
     route: "/blog",
-    icon: <FaBook />,
+    icon: <HiBookOpen />,
   },
   {
     name: "Bookmarks",
     route: "/bookmarks",
-    icon: <FaBookOpen />,
+    icon: <HiBookmark />,
   },
 ];
 
