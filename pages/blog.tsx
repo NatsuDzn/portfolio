@@ -38,7 +38,7 @@ const Blog = ({ articles }) => {
           <Grid
             mt={10}
             alignItems="center"
-            templateColumns={["repeat(2, 1fr)"]}
+            templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"]}
             gap={5}
           >
             {articles

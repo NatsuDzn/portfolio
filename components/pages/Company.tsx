@@ -30,7 +30,7 @@ const Company = () => {
       >
         I’ve worked with
       </Heading>
-      <Grid mt={10} templateColumns={["1fr"]} gap={5}>
+      <Grid mt={[4, 10]} templateColumns={["1fr"]} gap={5}>
         {companies.map((company) => (
           <Card company={company} key={company?.name} />
         ))}

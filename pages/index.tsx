@@ -70,7 +70,7 @@ export default function Home() {
                 fulltime at DessIA. In my spare time, I’m contributing to open
                 source projects I used on a daily basis.
               </Paragraph>
-              <Divider my={10} />
+              <Divider my={[8, 10]} />
             </Box>
           </ScaleFade>
           <Company />

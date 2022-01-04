@@ -9,9 +9,11 @@ import {
   Tag,
   TagLeftIcon,
   TagLabel,
+  Center,
 } from "@chakra-ui/react";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Nowplaying from "../Nowplaying";
 
 const Footer = () => (
   <Box
@@ -50,6 +52,9 @@ const Footer = () => (
           />
         </ButtonGroup>
       </Stack>
+      <Center mt={4}>
+        <Nowplaying />
+      </Center>
     </Container>
   </Box>
 );

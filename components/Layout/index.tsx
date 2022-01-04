@@ -5,14 +5,19 @@ import { Global, css } from "@emotion/react";
 import { prismLightTheme, prismDarkTheme } from "../../styles/prism";
 import { useColorMode } from "@chakra-ui/react";
 
-const index = ({ children }: PropsWithChildren<{}>) => {
+const Layout = ({ children }: PropsWithChildren<{}>) => {
   const { colorMode } = useColorMode();
+
+  const prismTheme = {
+    light: prismLightTheme,
+    dark: prismDarkTheme,
+  };
 
   return (
     <>
       <Global
         styles={css`
-          ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
+          ${prismTheme[colorMode]};
         `}
       />
       <Navbar />
@@ -22,4 +27,4 @@ const index = ({ children }: PropsWithChildren<{}>) => {
   );
 };
 
-export default index;
+export default Layout;

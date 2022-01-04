@@ -51,7 +51,7 @@ const About = () => {
             </Box>
           </ScaleFade>
 
-          <Divider my={10} />
+          <Divider my={[8, 10]} />
 
           <ScaleFade in={true} delay={0.2}>
             <Box>
@@ -66,13 +66,13 @@ const About = () => {
                 While I was at Hetic I had the chance to work after the end of
                 my 1st year. I have started to work for ThingType where I
                 learned about Angular. During my second and last year I worked
-                at DessIA where I really dived in Angular.
-                After my internship DessIA hired me full time.
+                at DessIA where I really dived in Angular. After my internship
+                DessIA hired me full time.
               </Paragraph>
             </Box>
           </ScaleFade>
 
-          <Divider my={10} />
+          <Divider my={[8, 10]} />
 
           <ScaleFade in={true} delay={0.4}>
             <Box>
