@@ -6,13 +6,17 @@ import {
   ScaleFade,
   Divider,
   Center,
+  SkeletonCircle,
 } from "@chakra-ui/react";
 
 import Paragraph from "../components/Paragraph";
 import Company from "../components/pages/Company";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [avatarLoading, setAvatarLoading] = useState(false);
+
   return (
     <div>
       <Head>
@@ -34,13 +38,21 @@ export default function Home() {
           <ScaleFade in={true}>
             <Box>
               <Center>
-                <Box borderRadius="full" overflow="hidden" width={128} height={128}>
+                <Box
+                  borderRadius="full"
+                  overflow="hidden"
+                  width={128}
+                  height={128}
+                >
+                  {!avatarLoading && <SkeletonCircle height={128} width={128} />}
+
                   <Image
                     width={256}
                     height={256}
                     objectFit="cover"
                     alt="test"
                     src="/assets/images/me.jpg"
+                    onLoadingComplete={() => setAvatarLoading(true)}
                   />
                 </Box>
               </Center>

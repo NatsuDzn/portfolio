@@ -111,8 +111,10 @@ const MDXComponents = {
   h4: (props) => <Heading as="h4" size="md" my={4} {...props} />,
   h5: (props) => <Heading as="h5" size="sm" my={4} {...props} />,
   h6: (props) => <Heading as="h6" size="xs" my={4} {...props} />,
-  inlineCode: (props) => <Code colorScheme="white" {...props} />,
-  code: (props) => <Code colorScheme="white" {...props} />,
+    inlineCode: (props) => (
+        <Code colorScheme="teal" fontSize="0.84em" {...props} />
+  ),
+  // code: (props) => <Code colorScheme="teal" my={0} {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,
@@ -121,7 +123,7 @@ const MDXComponents = {
   td: TData,
   a: CustomLink,
   img: TImage,
-  p: (props) => <Text as="p" mt={4} fontWeight="normal" fontSize="1rem" {...props} />,
+  p: (props) => <Text as="span" mt={4} fontWeight="normal" fontSize="1rem" {...props} />,
   ul: (props) => (
     <Box as="ul" pt={2} fontSize="1rem" fontWeight="normal" pl={4} ml={2} {...props} />
   ),

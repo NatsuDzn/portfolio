@@ -4,40 +4,21 @@ import { Container } from "@chakra-ui/react";
 import { getAllPostsPaths, getPostData } from "../../lib/airtable";
 import readingTime from "reading-time";
 import MDXComponents from "../../components/MDX";
-import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { NextSeo } from 'next-seo';
 import Bloglayout from "../../components/Layout/Bloglayout";
+import SEO from "../../components/Layout/SEO";
+import remarkSlug from 'remark-slug';
+import remarkCodeTitles from 'remark-code-titles';
+import remarkPrism from 'remark-prism';
 
 export default function Blog({ source, post, frontMatter }) {
   return (
     <div>
-      
-      <NextSeo
+      <SEO
         title={post?.fields.title}
         description={post?.fields.summary}
-        canonical=''
-        openGraph={{
-          url: 'https://nathanael-louzoun.vercel.app/',
-          title: post?.fields.title,
-          description: post?.fields.summary,
-          images: [
-            {
-              url: post.fields.thumbnail[0].url,
-              width: 800,
-              height: 600,
-              alt: 'Og Image Alt',
-            },
-          ],
-          site_name: 'SiteName',
-        }}
-        twitter={{
-          handle: '@NatsuDzn',
-          site: '@site',
-          cardType: 'summary_large_image',
-        }}
+        thumbnail={post?.fields.thumbnail[0].url}
       />
-
 
       <Container maxW="container.md" mt={10}>
         <Bloglayout frontMatter={frontMatter}>
@@ -60,7 +41,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.slug);
 
-  const mdxSource = await serialize(postData.post[0].fields.mdx);
+  const mdxSource = await serialize(postData.post[0].fields.mdx, {
+    mdxOptions: {
+      remarkPlugins: [
+        remarkSlug,
+        remarkCodeTitles,
+        remarkPrism,
+      ],
+    },
+  });
 
   return {
     props: {
