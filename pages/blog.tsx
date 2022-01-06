@@ -1,10 +1,11 @@
 import Head from "next/head";
-import { Box, Container, Grid, Heading, SlideFade } from "@chakra-ui/react";
+import { Box, Container, Grid, Heading } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import Blogcard from "../components/Blogcard";
 import sorter from "sort-isostring";
 import { GetStaticProps } from "next";
+import Section from "../components/Layout/Section";
 
 const Blog = ({ articles }) => {
   return (
@@ -19,39 +20,37 @@ const Blog = ({ articles }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <SlideFade in={true}>
-            <Box>
-              <Heading
-                as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-                mb={4}
-              >
-                Blog
-              </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6}>
-                Blog list
-              </Paragraph>
-            </Box>
-          </SlideFade>
+          <Section delay={0.1}>
+            <Heading
+              as="h1"
+              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              mb={4}
+            >
+              Blog
+            </Heading>
+            <Paragraph fontSize="xl" lineHeight={1.6}>
+              Blog list
+            </Paragraph>
+          </Section>
 
           {!articles.length && "No article found."}
-          <Grid
-            mt={10}
-            alignItems="center"
-            templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"]}
-            gap={5}
-          >
-            {articles
-              .filter((article) => article.fields.status === "Published")
-              .sort((x, y) =>
-                sorter(y.fields.publishDate, x.fields.publishDate)
-              )
-              .map((article) => {
-                return (
-                  <Blogcard article={article} key={article.id} />
-                );
-              })}
-          </Grid>
+          <Section delay={0.2}>
+            <Grid
+              mt={10}
+              alignItems="center"
+              templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"]}
+              gap={5}
+            >
+              {articles
+                .filter((article) => article.fields.status === "Published")
+                .sort((x, y) =>
+                  sorter(y.fields.publishDate, x.fields.publishDate)
+                )
+                .map((article) => {
+                  return <Blogcard article={article} key={article.id} />;
+                })}
+            </Grid>
+          </Section>
         </Container>
       </main>
     </div>
@@ -67,6 +66,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
     revalidate: 10,
   };
-}
+};
 
 export default Blog;

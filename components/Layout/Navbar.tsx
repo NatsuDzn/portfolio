@@ -15,7 +15,7 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./nav/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
-import { HiBeaker, HiBookmark, HiBookOpen, HiLightningBolt } from "react-icons/hi";
+import { HiBeaker, HiBookOpen, HiChartSquareBar, HiLightningBolt } from "react-icons/hi";
 import useSound from "use-sound";
 import { useCallback } from "react";
 
@@ -43,9 +43,9 @@ const extraLinks = [
     icon: <HiBookOpen />,
   },
   {
-    name: "Bookmarks",
-    route: "/bookmarks",
-    icon: <HiBookmark />,
+    name: "Stats",
+    route: "/stats",
+    icon: <HiChartSquareBar />,
   },
 ];
 

@@ -1,5 +1,5 @@
 import Card from "../Card";
-import { Heading, ScaleFade, Grid } from "@chakra-ui/react";
+import { Heading, Grid } from "@chakra-ui/react";
 import { FaRobot, FaMicrochip } from "react-icons/fa";
 
 const companies = [
@@ -22,7 +22,7 @@ const companies = [
 
 const Company = () => {
   return (
-    <ScaleFade in={true} delay={0.2}>
+    <>
       <Heading
         as="h1"
         fontSize={{ base: "24px", md: "30px", lg: "36px" }}
@@ -35,7 +35,7 @@ const Company = () => {
           <Card company={company} key={company?.name} />
         ))}
       </Grid>
-    </ScaleFade>
+    </>
   );
 };
 

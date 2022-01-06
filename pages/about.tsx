@@ -1,14 +1,8 @@
 import Head from "next/head";
-import {
-  Box,
-  Container,
-  Divider,
-  Heading,
-  ScaleFade,
-  Tag,
-} from "@chakra-ui/react";
+import { Box, Container, Divider, Heading, Tag } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { useState } from "react";
+import Section from "../components/Layout/Section";
 
 const About = () => {
   const [coolStuff, setCoolStuff] = useState([
@@ -33,7 +27,7 @@ const About = () => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true}>
+          <Section delay={0.1}>
             <Box>
               <Heading
                 as="h1"
@@ -42,18 +36,18 @@ const About = () => {
               >
                 About Me
               </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6}>
+              <Paragraph fontSize="18px" lineHeight={1.6}>
                 After high school, I studied at Hetic in Montreuil, where I
                 started front-end development, and ui/ux design and back-end. In
                 my free time I like to learn new things. During the weekend I
                 like to read manga, code new things and hang out with friends.
               </Paragraph>
             </Box>
-          </ScaleFade>
+          </Section>
 
-          <Divider my={[8, 10]} />
+          <Divider my={[6, 8]} />
 
-          <ScaleFade in={true} delay={0.2}>
+          <Section delay={0.2}>
             <Box>
               <Heading
                 as="h1"
@@ -62,7 +56,7 @@ const About = () => {
               >
                 Work
               </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6}>
+              <Paragraph fontSize="18px" lineHeight={1.6}>
                 While I was at Hetic I had the chance to work after the end of
                 my 1st year. I have started to work for ThingType where I
                 learned about Angular. During my second and last year I worked
@@ -70,11 +64,11 @@ const About = () => {
                 DessIA hired me full time.
               </Paragraph>
             </Box>
-          </ScaleFade>
+          </Section>
 
-          <Divider my={[8, 10]} />
+          <Divider my={[6, 8]} />
 
-          <ScaleFade in={true} delay={0.4}>
+          <Section delay={0.3}>
             <Box>
               <Heading
                 as="h1"
@@ -86,7 +80,7 @@ const About = () => {
               <Paragraph fontSize="xl" lineHeight={1.6}>
                 {coolStuff.map((item) => (
                   <Tag
-                    size="lg"
+                    size="md"
                     colorScheme="green"
                     key={item}
                     marginY={2}
@@ -97,7 +91,7 @@ const About = () => {
                 ))}
               </Paragraph>
             </Box>
-          </ScaleFade>
+          </Section>
         </Container>
       </main>
     </div>

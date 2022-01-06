@@ -5,7 +5,6 @@ import {
   Grid,
   Heading,
   HStack,
-  ScaleFade,
   Tab,
   TabList,
   Tabs,
@@ -17,7 +16,14 @@ import { getTable } from "../lib/airtable";
 import { useCallback, useState } from "react";
 import Stackcard from "../components/Stackcard";
 import { GetStaticProps } from "next";
-import { HiCloud, HiCode, HiCollection, HiColorSwatch, HiDesktopComputer } from "react-icons/hi";
+import {
+  HiCloud,
+  HiCode,
+  HiCollection,
+  HiColorSwatch,
+  HiDesktopComputer,
+} from "react-icons/hi";
+import Section from "../components/Layout/Section";
 
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
@@ -49,79 +55,81 @@ const Stacks = ({ stacks }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true}>
-            <Box>
-              <Heading
-                as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-                textAlign="center"
-                mb={4}
-              >
-                Stacks
-              </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
-                Stacks list
-              </Paragraph>
-            </Box>
-          </ScaleFade>
+          <Section delay={0.1}>
+            <Heading
+              as="h1"
+              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              textAlign="center"
+              mb={4}
+            >
+              Stacks
+            </Heading>
+            <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
+              Stacks list
+            </Paragraph>
+          </Section>
 
-          <Tabs
-            variant="soft-rounded"
-            colorScheme={useColorModeValue("gray", "teal")}
-            align="center"
-            mt={4}
-          >
-            <TabList flexWrap="wrap">
-              <Tab onClick={() => filterStacks(null)}>
-                <HStack spacing={1}>
-                  <HiCollection fontSize="20px" />
-                  <Text>All</Text>
-                </HStack>
-              </Tab>
+          <Section delay={0.2}>
+            <Tabs
+              variant="soft-rounded"
+              colorScheme={useColorModeValue("gray", "teal")}
+              align="center"
+              mt={4}
+            >
+              <TabList flexWrap="wrap">
+                <Tab onClick={() => filterStacks(null)}>
+                  <HStack spacing={1}>
+                    <HiCollection fontSize="20px" />
+                    <Text>All</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterStacks("Web development")}>
-                <HStack spacing={1}>
-                  <HiDesktopComputer fontSize="20px" />
-                  <Text>Development</Text>
-                </HStack>
-              </Tab>
+                <Tab onClick={() => filterStacks("Web development")}>
+                  <HStack spacing={1}>
+                    <HiDesktopComputer fontSize="20px" />
+                    <Text>Development</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterStacks("Scripting")}>
-                <HStack spacing={1}>
-                  <HiCode fontSize="20px" />
-                  <Text>Scripting</Text>
-                </HStack>
-              </Tab>
+                <Tab onClick={() => filterStacks("Scripting")}>
+                  <HStack spacing={1}>
+                    <HiCode fontSize="20px" />
+                    <Text>Scripting</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterStacks("Devops")}>
-                <HStack spacing={1}>
-                  <HiCloud fontSize="20px" />
-                  <Text>Devops</Text>
-                </HStack>
-              </Tab>
+                <Tab onClick={() => filterStacks("Devops")}>
+                  <HStack spacing={1}>
+                    <HiCloud fontSize="20px" />
+                    <Text>Devops</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterStacks("Design")}>
-                <HStack spacing={1}>
-                  <HiColorSwatch fontSize="20px" />
-                  <Text>Design</Text>
-                </HStack>
-              </Tab>
-            </TabList>
-          </Tabs>
+                <Tab onClick={() => filterStacks("Design")}>
+                  <HStack spacing={1}>
+                    <HiColorSwatch fontSize="20px" />
+                    <Text>Design</Text>
+                  </HStack>
+                </Tab>
+              </TabList>
+            </Tabs>
+          </Section>
 
           {!stacksList.length && "No stacks found."}
-          <Grid
-            mt={10}
-            alignItems="center"
-            templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
-            gap={5}
-          >
-            {stacksList
-              .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
-              .map((stack, index) => (
-                <Stackcard stack={stack} key={index} />
-              ))}
-          </Grid>
+          <Section delay={0.3}>
+            <Grid
+              mt={10}
+              alignItems="center"
+              templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
+              gap={5}
+            >
+              {stacksList
+                .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
+                .map((stack, index) => (
+                  <Stackcard stack={stack} key={index} />
+                ))}
+            </Grid>
+          </Section>
         </Container>
       </main>
     </div>
@@ -137,6 +145,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
     revalidate: 10,
   };
-}
+};
 
 export default Stacks;

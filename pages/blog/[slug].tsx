@@ -7,9 +7,10 @@ import MDXComponents from "../../components/MDX";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Bloglayout from "../../components/Layout/Bloglayout";
 import SEO from "../../components/Layout/SEO";
-import remarkSlug from 'remark-slug';
-import remarkCodeTitles from 'remark-code-titles';
-import remarkPrism from 'remark-prism';
+import remarkSlug from "remark-slug";
+import remarkCodeTitles from "remark-code-titles";
+import remarkPrism from "remark-prism";
+import Section from "../../components/Layout/Section";
 
 export default function Blog({ source, post, frontMatter }) {
   return (
@@ -22,7 +23,9 @@ export default function Blog({ source, post, frontMatter }) {
 
       <Container maxW="container.md" mt={10}>
         <Bloglayout frontMatter={frontMatter}>
-          <MDXRemote {...source} components={MDXComponents} />
+          <Section delay={0.2}>
+            <MDXRemote {...source} components={MDXComponents} />
+          </Section>
         </Bloglayout>
       </Container>
     </div>
@@ -43,11 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const mdxSource = await serialize(postData.post[0].fields.mdx, {
     mdxOptions: {
-      remarkPlugins: [
-        remarkSlug,
-        remarkCodeTitles,
-        remarkPrism,
-      ],
+      remarkPlugins: [remarkSlug, remarkCodeTitles, remarkPrism],
     },
   });
 

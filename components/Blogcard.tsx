@@ -2,7 +2,6 @@ import {
   AspectRatio,
   Box,
   Heading,
-  ScaleFade,
   Tag,
   TagLeftIcon,
   useColorModeValue,
@@ -61,54 +60,52 @@ const Blogcard = ({ article }: Article) => {
 
   return (
     <Link href={`/blog/${article?.fields.slug}`} currentPath={asPath}>
-      <ScaleFade in={true} delay={0.2}>
-        <VStack
-          p={4}
-          borderColor={useColorModeValue("gray.300", "gray.700")}
-          borderRadius="lg"
+      <VStack
+        p={4}
+        borderColor={useColorModeValue("gray.300", "gray.700")}
+        borderRadius="lg"
+        borderWidth="1px"
+        transition=".25s"
+        cursor="pointer"
+        d="flex"
+        alignItems="flex-start"
+        role="group"
+        _hover={{
+          borderColor: useColorModeValue("black", "teal.500"),
+          shadow: "lg",
+          transform: "translateY(-4px)",
+        }}
+      >
+        <AspectRatio
+          ratio={16 / 9}
+          w="100%"
+          rounded="lg"
+          overflow="hidden"
           borderWidth="1px"
-          transition=".25s"
-          cursor="pointer"
-          d="flex"
-          alignItems="flex-start"
-          role="group"
-          _hover={{
-            borderColor: useColorModeValue("black", "teal.500"),
-            shadow: "lg",
-            transform: "translateY(-4px)",
-          }}
+          bg={useColorModeValue("gray.300", "gray.700")}
+          borderColor={useColorModeValue("gray.300", "gray.700")}
         >
-          <AspectRatio
-            ratio={16 / 9}
-            w="100%"
-            rounded="lg"
-            overflow="hidden"
-            borderWidth="1px"
-            bg={useColorModeValue("gray.300", "gray.700")}
-            borderColor={useColorModeValue("gray.300", "gray.700")}
-          >
-            <Image
-              alt={article?.fields.title}
-              src={article?.fields.thumbnail[0].url}
-              layout="fill"
-              objectFit="cover"
-            />
-          </AspectRatio>
+          <Image
+            alt={article?.fields.title}
+            src={article?.fields.thumbnail[0].url}
+            layout="fill"
+            objectFit="cover"
+          />
+        </AspectRatio>
 
-          <Box ml={4}>
-            <Heading as="h1" size="md" noOfLines={1}>
-              {article?.fields.title}
-            </Heading>
-            <Paragraph mt={1} fontSize="sm" noOfLines={1}>
-              {article?.fields.summary}
-            </Paragraph>
-            <Tag mt={2} size="sm">
-              <TagLeftIcon boxSize="12px" as={HiClock} />
-              {format(article?.fields.publishDate)}
-            </Tag>
-          </Box>
-        </VStack>
-      </ScaleFade>
+        <Box ml={4}>
+          <Heading as="h1" size="md" noOfLines={1}>
+            {article?.fields.title}
+          </Heading>
+          <Paragraph mt={1} fontSize="sm" noOfLines={1}>
+            {article?.fields.summary}
+          </Paragraph>
+          <Tag mt={2} size="sm">
+            <TagLeftIcon boxSize="12px" as={HiClock} />
+            {format(article?.fields.publishDate)}
+          </Tag>
+        </Box>
+      </VStack>
     </Link>
   );
 };

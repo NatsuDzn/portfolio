@@ -5,7 +5,6 @@ import {
   Grid,
   Heading,
   HStack,
-  ScaleFade,
   Tab,
   TabList,
   Tabs,
@@ -19,6 +18,7 @@ import { useCallback, useState } from "react";
 import Toolcard from "../components/Toolcard";
 import { GetStaticProps } from "next";
 import { HiCollection } from "react-icons/hi";
+import Section from "../components/Layout/Section";
 
 const Tools = ({ tools }) => {
   const [toolsList, setToolsList] = useState(tools);
@@ -50,65 +50,67 @@ const Tools = ({ tools }) => {
       </Head>
       <main>
         <Container maxW="container.md" mt={10}>
-          <ScaleFade in={true}>
-            <Box>
-              <Heading
-                as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-                textAlign="center"
-                mb={4}
-              >
-                Tools
-              </Heading>
-              <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
-                List all tools
-              </Paragraph>
-            </Box>
-          </ScaleFade>
+          <Section delay={0.1}>
+            <Heading
+              as="h1"
+              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              textAlign="center"
+              mb={4}
+            >
+              Tools
+            </Heading>
+            <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
+              List all tools
+            </Paragraph>
+          </Section>
 
-          <Tabs
-            variant="soft-rounded"
-            colorScheme={useColorModeValue("gray", "teal")}
-            align="center"
-            mt={4}
-          >
-            <TabList flexWrap="wrap">
-              <Tab onClick={() => filterTools(null)}>
-                <HStack spacing={1}>
-                  <HiCollection fontSize="18px" />
-                  <Text>All</Text>
-                </HStack>
-              </Tab>
+          <Section delay={0.2}>
+            <Tabs
+              variant="soft-rounded"
+              colorScheme={useColorModeValue("gray", "teal")}
+              align="center"
+              mt={4}
+            >
+              <TabList flexWrap="wrap">
+                <Tab onClick={() => filterTools(null)}>
+                  <HStack spacing={1}>
+                    <HiCollection fontSize="18px" />
+                    <Text>All</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterTools("mac")}>
-                <HStack spacing={1}>
-                  <FaApple />
-                  <Text>Mac</Text>
-                </HStack>
-              </Tab>
+                <Tab onClick={() => filterTools("mac")}>
+                  <HStack spacing={1}>
+                    <FaApple />
+                    <Text>Mac</Text>
+                  </HStack>
+                </Tab>
 
-              <Tab onClick={() => filterTools("windows")}>
-                <HStack spacing={1}>
-                  <FaWindows />
-                  <Text>Windows</Text>
-                </HStack>
-              </Tab>
-            </TabList>
-          </Tabs>
+                <Tab onClick={() => filterTools("windows")}>
+                  <HStack spacing={1}>
+                    <FaWindows />
+                    <Text>Windows</Text>
+                  </HStack>
+                </Tab>
+              </TabList>
+            </Tabs>
+          </Section>
 
           {!toolsList.length && "No tools found."}
-          <Grid
-            mt={10}
-            alignItems="center"
-            templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
-            gap={5}
-          >
-            {toolsList
-              .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
-              .map((tool, index) => (
-                <Toolcard tool={tool} key={index} />
-              ))}
-          </Grid>
+          <Section delay={0.3}>
+            <Grid
+              mt={10}
+              alignItems="center"
+              templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
+              gap={5}
+            >
+              {toolsList
+                .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
+                .map((tool, index) => (
+                  <Toolcard tool={tool} key={index} />
+                ))}
+            </Grid>
+          </Section>
         </Container>
       </main>
     </div>
@@ -124,6 +126,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
     revalidate: 10,
   };
-}
+};
 
 export default Tools;
