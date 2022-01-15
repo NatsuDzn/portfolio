@@ -56,15 +56,16 @@ const Stacks = ({ stacks }) => {
       <main>
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
-            <Heading
+            <Text
               as="h1"
-              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              fontSize="custom"
+              fontWeight="bold"
               textAlign="center"
-              mb={4}
+              mb={2}
             >
               Stacks
-            </Heading>
-            <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
+            </Text>
+            <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
               Stacks list
             </Paragraph>
           </Section>

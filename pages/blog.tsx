@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Container, Grid, Heading } from "@chakra-ui/react";
+import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import Blogcard from "../components/Blogcard";
@@ -21,14 +21,10 @@ const Blog = ({ articles }) => {
       <main>
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
-            <Heading
-              as="h1"
-              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
-              mb={4}
-            >
+            <Text as="h1" fontSize="custom" fontWeight="bold" mb={2}>
               Blog
-            </Heading>
-            <Paragraph fontSize="xl" lineHeight={1.6}>
+            </Text>
+            <Paragraph fontSize="lg" lineHeight={1.6}>
               Blog list
             </Paragraph>
           </Section>

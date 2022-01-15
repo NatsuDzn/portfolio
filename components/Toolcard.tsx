@@ -63,7 +63,7 @@ const Toolcard = ({ tool }) => {
         </Box>
 
         <Box ml={4}>
-          <Heading as="h2" size="sm">
+          <Heading as="h2" fontSize="sm">
             {tool?.fields.name}
           </Heading>
           <Paragraph mt={1} fontSize="sm">

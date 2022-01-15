@@ -58,14 +58,15 @@ export default function Home() {
               </Box>
             </Center>
 
-            <Heading
+            <Text
               as="h1"
-              fontSize={{ base: "28px", md: "40px", lg: "48px" }}
+              fontSize="custom"
+              fontWeight="bold"
               my={3}
             >
               Hey, I’m Nathanael Louzoun
-            </Heading>
-            <Paragraph fontSize="18px" lineHeight={1.6}>
+            </Text>
+            <Paragraph fontSize="lg" lineHeight={1.6}>
               I’m a front end developer, who is focused on React and Angular.
               I’m born in Paris. I’ve studied at{" "}
               <Text

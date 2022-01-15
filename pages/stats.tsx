@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Container, Heading } from "@chakra-ui/react";
+import { Box, Container, Heading, Text } from "@chakra-ui/react";
 import Anilist from "../components/pages/Anilist";
 import Section from "../components/Layout/Section";
 
@@ -17,13 +17,14 @@ const Bookmarks = () => {
       <main>
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
-            <Heading
+            <Text
               as="h1"
-              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              fontSize="custom"
+              fontWeight="bold"
               mb={4}
             >
               Stats
-            </Heading>
+            </Text>
           </Section>
 
           <Section delay={0.2}>

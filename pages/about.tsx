@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Container, Divider, Heading, Tag } from "@chakra-ui/react";
+import { Box, Container, Divider, Heading, Tag, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { useState } from "react";
 import Section from "../components/Layout/Section";
@@ -29,14 +29,15 @@ const About = () => {
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
             <Box>
-              <Heading
+              <Text
                 as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+                fontSize="custom"
+                fontWeight="bold"
                 mb={4}
               >
                 About Me
-              </Heading>
-              <Paragraph fontSize="18px" lineHeight={1.6}>
+              </Text>
+              <Paragraph fontSize="lg" lineHeight={1.6}>
                 After high school, I studied at Hetic in Montreuil, where I
                 started front-end development, and ui/ux design and back-end. In
                 my free time I like to learn new things. During the weekend I
@@ -49,14 +50,15 @@ const About = () => {
 
           <Section delay={0.2}>
             <Box>
-              <Heading
+              <Text
                 as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+                fontSize="custom"
+                fontWeight="bold"
                 mb={4}
               >
                 Work
-              </Heading>
-              <Paragraph fontSize="18px" lineHeight={1.6}>
+              </Text>
+              <Paragraph fontSize="lg" lineHeight={1.6}>
                 While I was at Hetic I had the chance to work after the end of
                 my 1st year. I have started to work for ThingType where I
                 learned about Angular. During my second and last year I worked
@@ -70,17 +72,18 @@ const About = () => {
 
           <Section delay={0.3}>
             <Box>
-              <Heading
+              <Text
                 as="h1"
-                fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+                fontSize="custom"
+                fontWeight="bold"
                 mb={4}
               >
                 Thing I ❤
-              </Heading>
+              </Text>
               <Paragraph fontSize="xl" lineHeight={1.6}>
                 {coolStuff.map((item) => (
                   <Tag
-                    size="md"
+                    size="lg"
                     colorScheme="green"
                     key={item}
                     marginY={2}

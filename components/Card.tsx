@@ -8,6 +8,8 @@ import {
   Tag,
   Stack,
   TagLeftIcon,
+  HStack,
+  Text,
 } from "@chakra-ui/react";
 import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
 import Paragraph from "./Paragraph";
@@ -54,15 +56,22 @@ const Card = ({ company }) => {
           _groupHover={{ color: useColorModeValue("black", "teal.500") }}
           icon={company?.icon}
         />
-        <Box>
+        <Box  w="100%">
           <LinkOverlay href={company?.url} rel="noopener" isExternal>
-            <Heading as="h2" size="sm">
-              {company?.name}
-            </Heading>
+            <HStack justifyContent="space-between">
+              <Heading as="h2" fontSize="14px">
+                {company?.name}
+              </Heading>
+              <HStack fontSize="xs" fontWeight="light">
+                <Text>{company?.start}</Text>
+                <Text>-</Text>
+                <Text>{company?.end}</Text>
+              </HStack>
+            </HStack>
             <Paragraph mt={1} fontSize="sm">
               {company?.description}
             </Paragraph>
-            <Stack
+            {/* <Stack
               mt={2}
               direction="row"
               display={["none", "block"]}
@@ -74,7 +83,7 @@ const Card = ({ company }) => {
                   {stack}
                 </Tag>
               ))}
-            </Stack>
+            </Stack> */}
           </LinkOverlay>
         </Box>
       </Box>

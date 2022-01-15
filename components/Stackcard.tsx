@@ -49,7 +49,7 @@ const Stackcard = ({ stack }) => {
         </Box>
 
         <Box ml={4}>
-          <Heading as="h2" size="sm">
+          <Heading as="h2" fontSize="sm">
             {stack?.fields.name}
           </Heading>
           <Stack mt={2} direction="row" spacing="1rem">

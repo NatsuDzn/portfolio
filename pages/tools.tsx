@@ -51,15 +51,16 @@ const Tools = ({ tools }) => {
       <main>
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
-            <Heading
+            <Text
               as="h1"
-              fontSize={{ base: "28px", md: "32px", lg: "36px" }}
+              fontSize="custom"
+              fontWeight="bold"
               textAlign="center"
-              mb={4}
+              mb={2}
             >
               Tools
-            </Heading>
-            <Paragraph fontSize="xl" lineHeight={1.6} textAlign="center">
+            </Text>
+            <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
               List all tools
             </Paragraph>
           </Section>
@@ -74,7 +75,7 @@ const Tools = ({ tools }) => {
               <TabList flexWrap="wrap">
                 <Tab onClick={() => filterTools(null)}>
                   <HStack spacing={1}>
-                    <HiCollection fontSize="18px" />
+                    <HiCollection fontSize="lg" />
                     <Text>All</Text>
                   </HStack>
                 </Tab>

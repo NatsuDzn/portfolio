@@ -1,5 +1,5 @@
 import Card from "../Card";
-import { Heading, Grid } from "@chakra-ui/react";
+import { Heading, Grid, Text } from "@chakra-ui/react";
 import { FaRobot, FaMicrochip } from "react-icons/fa";
 
 const companies = [
@@ -10,6 +10,8 @@ const companies = [
     icon: <FaRobot fontSize="20px" />,
     url: "https://dessia.tech/",
     stack: ["Angular", "PrimeNG", "Babylon JS", "Figma"],
+    start: "October 2019",
+    end: "Present"
   },
   {
     name: "ThingType",
@@ -17,20 +19,18 @@ const companies = [
     icon: <FaMicrochip fontSize="20px" />,
     url: "https://www.linkedin.com/company/thingtype/about/",
     stack: ["Angular", "Figma"],
+    start: "Jul 2019",
+    end: "Aug 2019"
   },
 ];
 
 const Company = () => {
   return (
     <>
-      <Heading
-        as="h1"
-        fontSize={{ base: "24px", md: "30px", lg: "36px" }}
-        mb={3}
-      >
+      <Text as="h1" fontSize="custom" fontWeight="bold">
         I’ve worked with
-      </Heading>
-      <Grid mt={[4, 10]} templateColumns={["1fr"]} gap={5}>
+      </Text>
+      <Grid mt={4} templateColumns={["1fr"]} gap={5}>
         {companies.map((company) => (
           <Card company={company} key={company?.name} />
         ))}

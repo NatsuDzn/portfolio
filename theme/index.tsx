@@ -6,6 +6,13 @@ const config: ChakraTheme["config"] = {
 };
 
 const styles = {
+  fonts: {
+    heading: "Inter",
+    body: "Inter",
+  },
+  fontSizes: {
+    "custom": "28px"
+  },
   config,
   styles: {
     global: (props: any) => ({
