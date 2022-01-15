@@ -58,7 +58,7 @@ const Anilist = () => {
         >
           <Box>
             <Text as="div" fontSize="sm" fontWeight="normal">
-              Manga readed
+              Manga read
             </Text>
             <Text as="div" mt={1} fontSize="xl" fontWeight="black">
               {data?.anilistUserStats.manga.count}

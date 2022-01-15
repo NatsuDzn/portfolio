@@ -1,9 +1,9 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { PropsWithChildren } from "react";
-import { Global, css } from "@emotion/react";
-import { prismLightTheme, prismDarkTheme } from "../../styles/prism";
+import { css, Global } from "@emotion/react";
 import { useColorMode } from "@chakra-ui/react";
+import { prismLightTheme, prismDarkTheme } from "../../styles/prism";
 
 const Layout = ({ children }: PropsWithChildren<{}>) => {
   const { colorMode } = useColorMode();

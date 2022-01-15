@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import {
   Box,
+  HStack,
   Image,
   Link,
   Text,
@@ -10,9 +11,11 @@ import {
 } from "@chakra-ui/react";
 import { usePalette } from "react-palette";
 import { SiSpotify } from "react-icons/si";
+import { IoHeadset } from "react-icons/io5";
+
 
 const Nowplaying = () => {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data } = useSWR("/api/spotify", fetcher);
 
@@ -24,62 +27,79 @@ const Nowplaying = () => {
   };
 
   const paletteColor = {
-    background: colorMode === "light" ? palette.darkVibrant : palette.lightVibrant,
-    text: colorMode === "light" ? palette.lightVibrant :  palette.darkVibrant
-  }
-  
+    background:
+      colorMode === "light" ? palette.darkVibrant : palette.lightVibrant,
+    text: colorMode === "light" ? palette.lightVibrant : palette.darkVibrant,
+  };
 
   if (data?.isPlaying) {
     return (
-      <Link
-        style={{ textDecoration: "none" }}
-        href={
-          data?.isPlaying
-            ? data.songUrl
-            : "https://open.spotify.com/user/natsuxgraph"
-        }
-        rel="noopener"
-        isExternal
-        w={72}
-        position="relative"
-        display="flex"
-        alignItems="center"
-        px={4}
-        py={3}
-        mx={4}
-        bg={paletteColor.background}
-        rounded="md"
-        borderWidth="1px"
-        borderColor={borderColor.base}
-        transition=".25s"
-        _hover={{ borderColor: borderColor["hover"], shadow: "lg" }}
-        _focus={{
-          outline: "none",
-        }}
-      >
-        <Box w={32}>
+      <Box>
+        <HStack fontSize="xs" mb={2}>
+          <IoHeadset size="14px" />
+          <Text>Currently listening to:</Text>
+        </HStack>
+        <Link
+          style={{ textDecoration: "none" }}
+          href={
+            data?.isPlaying
+              ? data.songUrl
+              : "https://open.spotify.com/user/natsuxgraph"
+          }
+          rel="noopener"
+          isExternal
+          w={72}
+          position="relative"
+          display="flex"
+          alignItems="center"
+          px={4}
+          py={3}
+          bg={paletteColor.background}
+          rounded="md"
+          borderWidth="1px"
+          borderColor={borderColor.base}
+          transition=".25s"
+          _hover={{ borderColor: borderColor["hover"], shadow: "lg" }}
+          _focus={{
+            outline: "none",
+          }}
+        >
           <Image
-            width={16}
+            w={16}
+            h={16}
+            mr={4}
+            objectFit="cover"
             shadow="md"
             rounded="md"
             src={data?.albumImageUrl}
             alt={data?.album}
           />
-        </Box>
 
-        <VStack align="start" gap={0} w="100%">
-          <Text as="p" fontWeight="bold" noOfLines={1} color={paletteColor.text}>
-            {data.title}
-          </Text>
-          <Text as="span" fontSize="xs" m="0 !important" noOfLines={1} color={paletteColor.text}>
-            {data.artist}
-          </Text>
-        </VStack>
+          <VStack align="start" gap={0} w="100%">
+            <Text
+              as="p"
+              fontWeight="bold"
+              noOfLines={1}
+              color={paletteColor.text}
+            >
+              {data.title}
+            </Text>
+            <Text
+              as="span"
+              fontSize="xs"
+              m="0 !important"
+              noOfLines={1}
+              color={paletteColor.text}
+            >
+              {data.artist}
+            </Text>
+          </VStack>
 
-        <Box position="absolute" bottom={1.5} right={1.5}>
-          <SiSpotify size={16} color={paletteColor.text} />
-        </Box>
-      </Link>
+          <Box position="absolute" bottom={1.5} right={1.5}>
+            <SiSpotify size={16} color={paletteColor.text} />
+          </Box>
+        </Link>
+      </Box>
     );
   } else {
     return null;
