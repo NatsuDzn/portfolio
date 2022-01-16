@@ -63,6 +63,7 @@ export default function Home() {
               fontSize="custom"
               fontWeight="bold"
               my={3}
+              textAlign={["left", "center"]}
             >
               Hey, I’m Nathanael Louzoun
             </Text>

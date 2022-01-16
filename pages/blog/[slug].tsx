@@ -11,8 +11,18 @@ import remarkSlug from "remark-slug";
 import remarkCodeTitles from "remark-code-titles";
 import remarkPrism from "remark-prism";
 import Section from "../../components/Layout/Section";
+import Error from "../../components/Layout/Error";
 
 export default function Blog({ source, post, frontMatter }) {
+  if (post?.fields.status === "Draft") {
+    return (
+      <Error
+        title="Not found"
+        subtitle="The page you're looking for wasn't found."
+      />
+    );
+  }
+
   return (
     <div>
       <SEO
