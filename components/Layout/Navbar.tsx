@@ -94,8 +94,8 @@ const Navbar = () => {
         as="nav"
         py={2}
         borderTop="2px"
-        borderTopColor={useColorModeValue("black", "teal.500")}
-        bg={useColorModeValue("#FFFFFF40", "#1B202C80")}
+        borderTopColor={useColorModeValue("black", "green.500")}
+        bg={useColorModeValue("#FFFFFF40", "#0E111780")}
         css={{ backdropFilter: "blur(10px)" }}
         position="sticky"
         top={0}

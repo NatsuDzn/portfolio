@@ -27,7 +27,7 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
   let router = useRouter();
   let { asPath } = router;
   
-  const activeColor = useColorModeValue("gray.200", "gray.700");
+  const activeColor = useColorModeValue("gray.100", "active");
 
   return (
     <Menu autoSelect={false}>
@@ -37,10 +37,10 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
         rounded={"md"}
         bg="none"
         _hover={{
-          bg: useColorModeValue("gray.200", "gray.700"),
+          bg: activeColor,
         }}
         _active={{
-          bg: useColorModeValue("gray.200", "gray.700"),
+          bg: activeColor,
         }}
         fontWeight={400}
         as={Button}
@@ -48,7 +48,7 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
       >
         Links
       </MenuButton>
-      <MenuList bg={useColorModeValue("gray.50", "gray.800")}>
+      <MenuList bg={useColorModeValue("gray.100", "darkBackground")}> 
         {extraLinks &&
           extraLinks?.map(({ name, route, icon }) => (
             <Link href={route} key={name} currentPath={asPath}>

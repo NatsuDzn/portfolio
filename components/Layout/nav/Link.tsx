@@ -19,7 +19,7 @@ const Link = ({
 }: PropsWithChildren<CustomLinkProps>) => {
 
   const isActive = currentPath === href;
-  const activeColor = useColorModeValue("gray.100", "gray.700");
+  const activeColor = useColorModeValue("gray.100", "active");
 
   return (
     <NextLink href={href} passHref>

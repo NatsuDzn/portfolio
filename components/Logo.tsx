@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <Icon
       viewBox="0 0 32 32"
-      fill={`${useColorModeValue("black", "teal.500")}`}
+      fill={`${useColorModeValue("black", "green.500")}`}
       width="32px"
       height="auto"
       xmlns="http://www.w3.org/2000/svg"

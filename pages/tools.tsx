@@ -68,7 +68,7 @@ const Tools = ({ tools }) => {
           <Section delay={0.2}>
             <Tabs
               variant="soft-rounded"
-              colorScheme={useColorModeValue("gray", "teal")}
+              colorScheme={useColorModeValue("gray", "green")}
               align="center"
               mt={4}
             >

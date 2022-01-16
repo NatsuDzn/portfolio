@@ -21,7 +21,7 @@ const Table = (props) => (
 
 const THead = (props) => (
   <chakra.th
-    bg={useColorModeValue("neutral.50", "whiteAlpha.100")}
+    bg={useColorModeValue("neutral.50", "whigreenpha.100")}
     p={2}
     fontSize="sm"
     {...props}
@@ -112,9 +112,9 @@ const MDXComponents = {
   h5: (props) => <Heading as="h5" size="sm" my={4} {...props} />,
   h6: (props) => <Heading as="h6" size="xs" my={4} {...props} />,
     inlineCode: (props) => (
-        <Code colorScheme="teal" fontSize="0.84em" {...props} />
+        <Code colorScheme="green" fontSize="0.84em" {...props} />
   ),
-  // code: (props) => <Code colorScheme="teal" my={0} {...props} />,
+  // code: (props) => <Code colorScheme="green" my={0} {...props} />,
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,

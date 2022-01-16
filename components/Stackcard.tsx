@@ -27,7 +27,7 @@ const Stackcard = ({ stack }) => {
         alignItems="flex-start"
         role="group"
         _hover={{
-          borderColor: useColorModeValue("black", "teal.500"),
+          borderColor: useColorModeValue("black", "green.500"),
           shadow: "lg",
           transform: "translateY(-4px)",
         }}

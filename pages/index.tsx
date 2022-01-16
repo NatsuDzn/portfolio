@@ -73,7 +73,7 @@ export default function Home() {
               <Text
                 fontWeight="medium"
                 as="span"
-                color={useColorModeValue("black", "teal.500")}
+                color={useColorModeValue("black", "green.500")}
               >
                 Hetic
               </Text>{" "}
@@ -81,7 +81,7 @@ export default function Home() {
               <Text
                 fontWeight="medium"
                 as="span"
-                color={useColorModeValue("black", "teal.500")}
+                color={useColorModeValue("black", "green.500")}
               >
                 DessIA
               </Text>

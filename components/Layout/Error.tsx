@@ -47,7 +47,7 @@ const Error = ({ title, subtitle, errorType = "" }: ErrorProps) => {
       <Section delay={0.2}>
         <Box my={6} align="center">
           <NextLink href="/">
-            <Button colorScheme="teal">Go back to home</Button>
+            <Button colorScheme="green">Go back to home</Button>
           </NextLink>
         </Box>
       </Section>
