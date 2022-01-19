@@ -14,6 +14,7 @@ import {
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Nowplaying from "../Nowplaying";
+import Nowwatching from "../Nowwatching";
 
 const Footer = () => (
   <Box
@@ -52,8 +53,9 @@ const Footer = () => (
           />
         </ButtonGroup>
       </Stack>
-      <Center mt={4}>
+      <Center mt={4} gap={4} flexWrap="wrap" alignItems="start">
         <Nowplaying />
+        <Nowwatching />
       </Center>
     </Container>
   </Box>
