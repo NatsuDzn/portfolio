@@ -1,27 +1,22 @@
 export const getUserStats = async () => {
   const query = `
-        query($id: Int) {
-          User(id: $id) {
-            statistics {
-              anime {
-                count
-                minutesWatched
-                episodesWatched
-              }
-              manga {
-                count
-                chaptersRead
-                volumesRead
-              }
-            }
-          } 
-        }
+{
+  User(name: "natsudzn") {
+    statistics {
+      anime {
+        count
+        minutesWatched
+        episodesWatched
+      }
+      manga {
+        count
+        chaptersRead
+        volumesRead
+      }
+    }
+  }
+}
       `;
-
-  
-  const vars = {
-    id: 728915,
-  };
 
   const url = "https://graphql.anilist.co";
   const options = {
@@ -32,7 +27,6 @@ export const getUserStats = async () => {
     },
     body: JSON.stringify({
       query: query,
-      variables: vars,
     }),
   };
 
