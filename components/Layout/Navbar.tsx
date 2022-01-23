@@ -15,7 +15,13 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./nav/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
-import { HiBeaker, HiBookOpen, HiChartSquareBar, HiLightningBolt } from "react-icons/hi";
+import {
+  HiBeaker,
+  HiBookOpen,
+  HiChartSquareBar,
+  HiLightningBolt,
+  HiStar,
+} from "react-icons/hi";
 import useSound from "use-sound";
 import { useCallback } from "react";
 
@@ -43,6 +49,11 @@ const extraLinks = [
     icon: <HiBookOpen />,
   },
   {
+    name: "Favorites",
+    route: "/favorites",
+    icon: <HiStar />,
+  },
+  {
     name: "Stats",
     route: "/stats",
     icon: <HiChartSquareBar />,
@@ -63,13 +74,10 @@ const Navbar = () => {
     },
   });
 
-  const switchTheme = useCallback(
-    () => {
-      toggleColorMode();
-      play({ id: "on" });
-    },
-    [toggleColorMode, play]
-  );
+  const switchTheme = useCallback(() => {
+    toggleColorMode();
+    play({ id: "on" });
+  }, [toggleColorMode, play]);
 
   const navigationItem = (
     <>
@@ -112,7 +120,13 @@ const Navbar = () => {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={"center"}>
-              <Link href="/" key="Home" p={2} rounded={"md"} currentPath={asPath}>
+              <Link
+                href="/"
+                key="Home"
+                p={2}
+                rounded={"md"}
+                currentPath={asPath}
+              >
                 <Box>
                   <Logo />
                 </Box>

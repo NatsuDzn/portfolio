@@ -1,4 +1,3 @@
-import Head from "next/head";
 import {
   Container,
   Grid,
@@ -9,46 +8,40 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Paragraph from "../components/Paragraph";
-import { getTable } from "../lib/airtable";
-import { useCallback, useState } from "react";
-import Stackcard from "../components/Stackcard";
 import { GetStaticProps } from "next";
-import {
-  HiCloud,
-  HiCode,
-  HiCollection,
-  HiColorSwatch,
-  HiDesktopComputer,
-} from "react-icons/hi";
+import Head from "next/head";
+import { useCallback, useState } from "react";
+import { HiBookOpen, HiCollection, HiFilm } from "react-icons/hi";
+import Favcard from "../components/Favcard";
 import Section from "../components/Layout/Section";
+import Paragraph from "../components/Paragraph";
 
-const Stacks = ({ stacks }) => {
-  const [stacksList, setStacksList] = useState(stacks);
+export default function Favorites({ favs }) {
+  const [favorites, setFavorites] = useState(favs.results);
 
   const filterStacks = useCallback(
-    (tab) => {
+    (tab: string) => {
       if (tab !== null) {
-        setStacksList(
-          stacks.filter((skill) => {
-            return skill.fields.type.includes(tab);
+        setFavorites(
+          favs.results.filter((favorite) => {
+            return favorite.type === tab.toUpperCase() ? favorite : null;
           })
         );
       } else {
-        setStacksList(stacks);
+        setFavorites(favs.results);
       }
     },
-    [stacks]
+    [favs.results]
   );
 
   return (
     <div>
       <Head>
-        <title>Stacks | Nathanael Louzoun</title>
-        <meta name="description" content="Stacks | Nathanael Louzoun" />
+        <title>Favorites</title>
+        <meta name="description" content="Favorites" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta property="og:title" content="Stacks | Nathanael Louzoun" />
+        <meta property="og:title" content="Favorites" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -61,10 +54,10 @@ const Stacks = ({ stacks }) => {
               textAlign="center"
               mb={2}
             >
-              Stacks
+              Favorites
             </Text>
             <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
-              Stacks list
+              My manga and anime recommendations
             </Paragraph>
           </Section>
 
@@ -79,71 +72,54 @@ const Stacks = ({ stacks }) => {
                 <Tab onClick={() => filterStacks(null)}>
                   <HStack spacing={1}>
                     <HiCollection fontSize="20px" />
-                    <Text>All</Text>
+                    <Text>All ({favs.total.all})</Text>
                   </HStack>
                 </Tab>
 
-                <Tab onClick={() => filterStacks("Web development")}>
+                <Tab onClick={() => filterStacks("manga")}>
                   <HStack spacing={1}>
-                    <HiDesktopComputer fontSize="20px" />
-                    <Text>Development</Text>
+                    <HiBookOpen fontSize="20px" />
+                    <Text>Manga ({favs.total.manga})</Text>
                   </HStack>
                 </Tab>
 
-                <Tab onClick={() => filterStacks("Scripting")}>
+                <Tab onClick={() => filterStacks("anime")}>
                   <HStack spacing={1}>
-                    <HiCode fontSize="20px" />
-                    <Text>Scripting</Text>
-                  </HStack>
-                </Tab>
-
-                <Tab onClick={() => filterStacks("Devops")}>
-                  <HStack spacing={1}>
-                    <HiCloud fontSize="20px" />
-                    <Text>Devops</Text>
-                  </HStack>
-                </Tab>
-
-                <Tab onClick={() => filterStacks("Design")}>
-                  <HStack spacing={1}>
-                    <HiColorSwatch fontSize="20px" />
-                    <Text>Design</Text>
+                    <HiFilm fontSize="20px" />
+                    <Text>Anime ({favs.total.anime})</Text>
                   </HStack>
                 </Tab>
               </TabList>
             </Tabs>
           </Section>
 
-          {!stacksList.length && "No stacks found."}
           <Section delay={0.3}>
             <Grid
               mt={10}
               alignItems="center"
               templateColumns={["1fr", "1fr", "repeat(2, 1fr)"]}
-              gap={5}
+              rowGap={12}
+              columnGap={4}
             >
-              {stacksList
-                .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
-                .map((stack, index) => (
-                  <Stackcard stack={stack} key={index} />
-                ))}
+              {favorites?.map((fav, index) => (
+                <Favcard media={fav} key={index} />
+              ))}
             </Grid>
           </Section>
         </Container>
       </main>
     </div>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const stacks = await getTable("Stacks");
+  const res = await fetch("https://nathanael-louzoun.vercel.app/api/anilist/favorites");
+  const favs = await res.json();
 
   return {
     props: {
-      stacks,
+      favs,
     },
     revalidate: 10,
   };
 };
-
-export default Stacks;
