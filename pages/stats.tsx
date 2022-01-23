@@ -3,7 +3,7 @@ import { Container, Text } from "@chakra-ui/react";
 import Githubstats from "../components/pages/Githubstats";
 import Section from "../components/Layout/Section";
 
-const Bookmarks = () => {
+const Stats = () => {
   return (
     <div>
       <Head>
@@ -36,4 +36,4 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks;
+export default Stats;

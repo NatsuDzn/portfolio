@@ -45,7 +45,7 @@ const trakt = async (_: any, res: any) => {
     type === "episode" ? watching.show.ids.tmdb : watching.movie.ids.tmdb;
   const url =
     type === "episode"
-      ? `https://trakt.tv/shows/${watching.show.ids.slug}`
+      ? `https://trakt.tv/shows/${watching.show.ids.slug}/seasons/${info.season}/episodes/${info.number}`
       : `https://trakt.tv/movies/${watching.movie.ids.slug}`;
   const isWatching = true;
 

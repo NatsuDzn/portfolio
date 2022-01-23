@@ -78,35 +78,35 @@ const Stacks = ({ stacks }) => {
               <TabList flexWrap="wrap">
                 <Tab onClick={() => filterStacks(null)}>
                   <HStack spacing={1}>
-                    <HiCollection fontSize="20px" />
+                    <HiCollection fontSize="xl" />
                     <Text>All</Text>
                   </HStack>
                 </Tab>
 
                 <Tab onClick={() => filterStacks("Web development")}>
                   <HStack spacing={1}>
-                    <HiDesktopComputer fontSize="20px" />
+                    <HiDesktopComputer fontSize="xl" />
                     <Text>Development</Text>
                   </HStack>
                 </Tab>
 
                 <Tab onClick={() => filterStacks("Scripting")}>
                   <HStack spacing={1}>
-                    <HiCode fontSize="20px" />
+                    <HiCode fontSize="xl" />
                     <Text>Scripting</Text>
                   </HStack>
                 </Tab>
 
                 <Tab onClick={() => filterStacks("Devops")}>
                   <HStack spacing={1}>
-                    <HiCloud fontSize="20px" />
+                    <HiCloud fontSize="xl" />
                     <Text>Devops</Text>
                   </HStack>
                 </Tab>
 
                 <Tab onClick={() => filterStacks("Design")}>
                   <HStack spacing={1}>
-                    <HiColorSwatch fontSize="20px" />
+                    <HiColorSwatch fontSize="xl" />
                     <Text>Design</Text>
                   </HStack>
                 </Tab>

@@ -3,10 +3,10 @@ export const getFavorites = async () => {
 {
   User(name: "natsudzn") {
     favourites {
-      anime {
+      manga {
         ...mediaListEntry
       }
-      manga {
+      anime {
         ...mediaListEntry
       }
     }
@@ -52,7 +52,7 @@ fragment mediaListEntry on MediaConnection {
   return fetch(url, options);
 };
 
-const anilist = async (_: any, res: any) => {
+const favorites = async (_: any, res: any) => {
   const response = await getFavorites();
 
   if (response.status === 204 || response.status > 400) {
@@ -61,13 +61,13 @@ const anilist = async (_: any, res: any) => {
 
   const stats = await response.json();
   const results = [
-    ...stats.data.User.favourites.anime.nodes,
     ...stats.data.User.favourites.manga.nodes,
+    ...stats.data.User.favourites.anime.nodes,
   ];
   const total = {
-    anime: stats.data.User.favourites.anime.nodes.length,
     manga: stats.data.User.favourites.manga.nodes.length,
-    all: results.length
+    anime: stats.data.User.favourites.anime.nodes.length,
+    all: results.length,
   };
 
   return res.status(200).json({
@@ -76,4 +76,4 @@ const anilist = async (_: any, res: any) => {
   });
 };
 
-export default anilist;
+export default favorites;

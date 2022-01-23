@@ -7,7 +7,7 @@ const companies = [
     name: "DessIA",
     description:
       "Bot platform based on an Explainable AI to automate engineers tasks.",
-    icon: <FaRobot fontSize="20px" />,
+    icon: <FaRobot fontSize="xl" />,
     url: "https://dessia.tech/",
     stack: ["Angular", "PrimeNG", "Babylon JS", "Figma"],
     start: "October 2019",
@@ -16,7 +16,7 @@ const companies = [
   {
     name: "ThingType",
     description: "Automatic conception of electronic board.",
-    icon: <FaMicrochip fontSize="20px" />,
+    icon: <FaMicrochip fontSize="xl" />,
     url: "https://www.linkedin.com/company/thingtype/about/",
     stack: ["Angular", "Figma"],
     start: "Jul 2019",

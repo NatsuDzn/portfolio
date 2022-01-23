@@ -41,7 +41,7 @@ const Footer = () => (
             target="_blank"
             rel="noopener"
             aria-label="Linkedin"
-            icon={<FaLinkedin fontSize="20px" />}
+            icon={<FaLinkedin fontSize="xl" />}
           />
           <IconButton
             as="a"
@@ -49,7 +49,7 @@ const Footer = () => (
             target="_blank"
             rel="noopener"
             aria-label="Github"
-            icon={<FaGithub fontSize="20px" />}
+            icon={<FaGithub fontSize="xl" />}
           />
         </ButtonGroup>
       </Stack>

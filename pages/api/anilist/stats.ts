@@ -33,7 +33,7 @@ export const getUserStats = async () => {
   return fetch(url, options);
 };
 
-const anilist = async (_: any, res: any) => {
+const stats = async (_: any, res: any) => {
   const response = await getUserStats();
 
   if (response.status === 204 || response.status > 400) {
@@ -48,4 +48,4 @@ const anilist = async (_: any, res: any) => {
   });
 };
 
-export default anilist;
+export default stats;

@@ -8,40 +8,26 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { AnimatePresence } from "framer-motion";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { HiBookOpen, HiCollection, HiFilm } from "react-icons/hi";
 import Favcard from "../components/Favcard";
 import Section from "../components/Layout/Section";
 import Paragraph from "../components/Paragraph";
 
 export default function Favorites({ favs }) {
-  const [favorites, setFavorites] = useState(favs.results);
-
-  const filterStacks = useCallback(
-    (tab: string) => {
-      if (tab !== null) {
-        setFavorites(
-          favs.results.filter((favorite) => {
-            return favorite.type === tab.toUpperCase() ? favorite : null;
-          })
-        );
-      } else {
-        setFavorites(favs.results);
-      }
-    },
-    [favs.results]
-  );
+  const [tab, setSelectedTab] = useState(null);
 
   return (
     <div>
       <Head>
-        <title>Favorites</title>
-        <meta name="description" content="Favorites" />
+        <title>Favorites | Nathanael Louzoun</title>
+        <meta name="description" content="Favorites | Nathanael Louzoun" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta property="og:title" content="Favorites" />
+        <meta property="og:title" content="Favorites | Nathanael Louzoun" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -69,24 +55,24 @@ export default function Favorites({ favs }) {
               mt={4}
             >
               <TabList flexWrap="wrap">
-                <Tab onClick={() => filterStacks(null)}>
+                <Tab onClick={() => setSelectedTab(null)}>
                   <HStack spacing={1}>
-                    <HiCollection fontSize="20px" />
+                    <HiCollection fontSize="xl" />
                     <Text>All ({favs.total.all})</Text>
                   </HStack>
                 </Tab>
 
-                <Tab onClick={() => filterStacks("manga")}>
+                <Tab onClick={() => setSelectedTab("anime")}>
                   <HStack spacing={1}>
-                    <HiBookOpen fontSize="20px" />
-                    <Text>Manga ({favs.total.manga})</Text>
+                    <HiFilm fontSize="xl" />
+                    <Text>Anime ({favs.total.anime})</Text>
                   </HStack>
                 </Tab>
 
-                <Tab onClick={() => filterStacks("anime")}>
+                <Tab onClick={() => setSelectedTab("manga")}>
                   <HStack spacing={1}>
-                    <HiFilm fontSize="20px" />
-                    <Text>Anime ({favs.total.anime})</Text>
+                    <HiBookOpen fontSize="xl" />
+                    <Text>Manga ({favs.total.manga})</Text>
                   </HStack>
                 </Tab>
               </TabList>
@@ -101,9 +87,15 @@ export default function Favorites({ favs }) {
               rowGap={12}
               columnGap={4}
             >
-              {favorites?.map((fav, index) => (
-                <Favcard media={fav} key={index} />
-              ))}
+              <AnimatePresence>
+                {favs.results
+                  ?.filter((favorite) =>
+                    tab ? favorite.type === tab?.toUpperCase() : favorite
+                  )
+                  .map((fav, i) => (
+                    <Favcard media={fav} key={fav.id} />
+                  ))}
+              </AnimatePresence>
             </Grid>
           </Section>
         </Container>
