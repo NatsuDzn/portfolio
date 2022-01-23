@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
-import Anilist from "../components/pages/Anilist";
+import { Container, Text } from "@chakra-ui/react";
+import Githubstats from "../components/pages/Githubstats";
 import Section from "../components/Layout/Section";
 
 const Bookmarks = () => {
@@ -28,7 +28,7 @@ const Bookmarks = () => {
           </Section>
 
           <Section delay={0.2}>
-            <Anilist />
+            <Githubstats />
           </Section>
         </Container>
       </main>

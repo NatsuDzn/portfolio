@@ -2,12 +2,12 @@ import Head from "next/head";
 import {
   Box,
   Container,
-  Heading,
   Divider,
   Center,
   SkeletonCircle,
   Text,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 
 import Paragraph from "../components/Paragraph";
@@ -71,17 +71,19 @@ export default function Home() {
               I’m a front end developer, who is focused on React and Angular.
               I’m born in Paris. I’ve studied at{" "}
               <Text
-                fontWeight="medium"
                 as="span"
+                fontWeight="medium"
                 color={useColorModeValue("black", "green.500")}
+                style={{ boxShadow: "0 2px" }}
               >
-                Hetic
+                Hetic 
               </Text>{" "}
               and I’m now working fulltime at{" "}
               <Text
-                fontWeight="medium"
                 as="span"
+                fontWeight="medium"
                 color={useColorModeValue("black", "green.500")}
+                style={{ boxShadow: "0 2px" }}
               >
                 DessIA
               </Text>
@@ -92,7 +94,7 @@ export default function Home() {
           </Box>
         </Section>
         <Section delay={0.2}>
-        <Company />
+          <Company />
         </Section>
       </Container>
     </div>
