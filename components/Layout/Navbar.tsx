@@ -43,11 +43,11 @@ const extraLinks = [
     route: "/tools",
     icon: <HiBeaker />,
   },
-  {
-    name: "Blog",
-    route: "/blog",
-    icon: <HiBookOpen />,
-  },
+  // {
+  //   name: "Blog",
+  //   route: "/blog",
+  //   icon: <HiBookOpen />,
+  // },
   {
     name: "Favorites",
     route: "/favorites",
