@@ -5,27 +5,11 @@ import {
   LinkOverlay,
   LinkBox,
   useColorModeValue,
-  Tag,
-  Stack,
-  TagLeftIcon,
   HStack,
   Text,
 } from "@chakra-ui/react";
 import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
 import Paragraph from "./Paragraph";
-
-const handleStack = (stack) => {
-  switch (stack) {
-    case "Angular":
-      return FaAngular;
-    case "PrimeNG":
-      return FaBook;
-    case "Babylon JS":
-      return FaCube;
-    case "Figma":
-      return FaFigma;
-  }
-};
 
 const Card = ({ company }) => {
   return (
@@ -56,7 +40,7 @@ const Card = ({ company }) => {
           _groupHover={{ color: useColorModeValue("black", "green.500") }}
           icon={company?.icon}
         />
-        <Box  w="100%">
+        <Box w="100%">
           <LinkOverlay href={company?.url} rel="noopener" isExternal>
             <HStack justifyContent="space-between">
               <Heading as="h2" fontSize="14px">
@@ -71,19 +55,6 @@ const Card = ({ company }) => {
             <Paragraph mt={1} fontSize="sm">
               {company?.description}
             </Paragraph>
-            {/* <Stack
-              mt={2}
-              direction="row"
-              display={["none", "block"]}
-              spacing="1rem"
-            >
-              {company.stack.map((stack) => (
-                <Tag key={stack} size="sm">
-                  <TagLeftIcon as={handleStack(stack)} />
-                  {stack}
-                </Tag>
-              ))}
-            </Stack> */}
           </LinkOverlay>
         </Box>
       </Box>

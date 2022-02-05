@@ -7,7 +7,6 @@ import {
   Stack,
   Text,
   Tooltip,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 

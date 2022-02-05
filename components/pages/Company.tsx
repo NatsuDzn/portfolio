@@ -1,5 +1,5 @@
 import Card from "../Card";
-import { Heading, Grid, Text } from "@chakra-ui/react";
+import { Grid, Text } from "@chakra-ui/react";
 import { FaRobot, FaMicrochip } from "react-icons/fa";
 
 const companies = [
