@@ -21,7 +21,7 @@ const Error = ({ title, subtitle, errorType = "" }: ErrorProps) => {
   return (
     <Container maxW="container.md" mt={10}>
       <Section delay={0.1}>
-        <Center direction="column" alignItems="center">
+        <Center alignItems="center">
           <Box borderRadius="full" overflow="hidden" width={128} height={128}>
             <Image
               width={256}
@@ -45,11 +45,11 @@ const Error = ({ title, subtitle, errorType = "" }: ErrorProps) => {
       <Divider my={6} />
 
       <Section delay={0.2}>
-        <Box my={6} align="center">
+        <Center my={6}>
           <NextLink href="/">
             <Button colorScheme="green">Go back to home</Button>
           </NextLink>
-        </Box>
+        </Center>
       </Section>
     </Container>
   );
