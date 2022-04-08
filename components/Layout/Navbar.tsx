@@ -48,11 +48,11 @@ const extraLinks = [
   //   route: "/blog",
   //   icon: <HiBookOpen />,
   // },
-  {
-    name: "Favorites",
-    route: "/favorites",
-    icon: <HiStar />,
-  },
+  // {
+  //   name: "Favorites",
+  //   route: "/favorites",
+  //   icon: <HiStar />,
+  // },
   {
     name: "Stats",
     route: "/stats",

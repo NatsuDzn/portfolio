@@ -55,7 +55,7 @@ const Footer = () => (
       </Stack>
       <Center mt={4} gap={4} flexWrap="wrap" alignItems="start">
         <Nowplaying />
-        <Nowwatching />
+        {/* <Nowwatching /> */}
       </Center>
     </Container>
   </Box>
