@@ -52,22 +52,20 @@ const Nowwatching = () => {
             position="relative"
             display="flex"
             alignItems="center"
+            gap={4}
             px={4}
             py={3}
             bg={paletteColor.background}
             rounded="md"
-            borderWidth="1px"
-            borderColor={borderColor.base}
+            outline="4px solid"
+            outlineColor="transparent"
             transition=".25s"
-            _hover={{ borderColor: borderColor["hover"], shadow: "lg" }}
-            _focus={{
-              outline: "none",
-            }}
+            _hover={{ outlineColor: borderColor["hover"], shadow: "lg" }}
+            _focus={{ outlineColor: borderColor["hover"] }}
           >
             <Image
               w={12}
               h="auto"
-              mr={4}
               shadow="md"
               rounded="md"
               src={data?.poster_path}
