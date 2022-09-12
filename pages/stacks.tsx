@@ -64,7 +64,7 @@ const Stacks = ({ stacks }) => {
               Stacks
             </Text>
             <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
-              Stacks list
+              List of my favorite technologies 
             </Paragraph>
           </Section>
 

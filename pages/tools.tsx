@@ -61,7 +61,7 @@ const Tools = ({ tools }) => {
               Tools
             </Text>
             <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
-              List all tools
+              Tools I used on a daily basis
             </Paragraph>
           </Section>
 
