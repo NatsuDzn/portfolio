@@ -3,6 +3,7 @@ import { mode } from "@chakra-ui/theme-tools";
 
 const config: ChakraTheme["config"] = {
   initialColorMode: "system",
+  disableTransitionOnChange: false
 };
 
 const styles = {
@@ -22,6 +23,8 @@ const styles = {
     global: (props: any) => ({
       body: {
         bg: mode("#fff", "darkBackground")(props),
+        transitionProperty: "all",
+        transitionDuration: "normal",
       },
       "body::-webkit-scrollbar": { width: "0.4rem" },
       "body::-webkit-scrollbar-track": {
