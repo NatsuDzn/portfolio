@@ -5,6 +5,7 @@ import {
   Tag,
   Stack,
   Link,
+  HStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -16,14 +17,13 @@ const Stackcard = ({ stack }) => {
       rel="noopener"
       isExternal
     >
-      <Box
+      <HStack
         p={4}
         borderColor={useColorModeValue("gray.300", "gray.700")}
         borderRadius={5}
         borderWidth="1px"
         transition=".25s"
         cursor="pointer"
-        d="flex"
         alignItems="flex-start"
         role="group"
         _hover={{
@@ -39,6 +39,7 @@ const Stackcard = ({ stack }) => {
           borderWidth="1px"
           transition=".5s"
           display="flex"
+          mr={2}
         >
           <Image
             height={36}
@@ -60,7 +61,7 @@ const Stackcard = ({ stack }) => {
             ))}
           </Stack>
         </Box>
-      </Box>
+      </HStack>
     </Link>
   );
 };

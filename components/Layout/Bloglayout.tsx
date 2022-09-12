@@ -1,4 +1,4 @@
-import { Box, Divider, Heading } from "@chakra-ui/react";
+import { Divider, Heading } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import Blogauthor from "../Blogauthor";
 import Blogfooter from "../Blogfooter";

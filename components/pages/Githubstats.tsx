@@ -32,7 +32,6 @@ const Githubstats = () => {
               borderWidth="1px"
               transition=".25s"
               cursor="pointer"
-              d="flex"
               role="group"
               _hover={{
                 borderColor: borderColor.hover,

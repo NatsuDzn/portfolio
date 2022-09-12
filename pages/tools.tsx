@@ -1,9 +1,7 @@
 import Head from "next/head";
 import {
-  Box,
   Container,
   Grid,
-  Heading,
   HStack,
   Tab,
   TabList,

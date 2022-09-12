@@ -28,7 +28,6 @@ const Favcard = ({ media }) => {
         borderWidth="1px"
         transition=".25s"
         cursor="pointer"
-        d="flex"
         alignItems="flex-start"
         role="group"
         _hover={{

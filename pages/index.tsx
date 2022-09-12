@@ -7,7 +7,6 @@ import {
   SkeletonCircle,
   Text,
   useColorModeValue,
-  Link,
 } from "@chakra-ui/react";
 
 import Paragraph from "../components/Paragraph";

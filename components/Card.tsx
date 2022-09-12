@@ -8,13 +8,12 @@ import {
   HStack,
   Text,
 } from "@chakra-ui/react";
-import { FaAngular, FaBook, FaCube, FaFigma } from "react-icons/fa";
 import Paragraph from "./Paragraph";
 
 const Card = ({ company }) => {
   return (
     <LinkBox as="article">
-      <Box
+      <HStack
         w="100%"
         p={4}
         borderColor={useColorModeValue("gray.300", "gray.700")}
@@ -22,7 +21,6 @@ const Card = ({ company }) => {
         borderWidth="1px"
         transition=".25s"
         cursor="pointer"
-        d="flex"
         role="group"
         _hover={{
           borderColor: useColorModeValue("black", "green.500"),
@@ -57,7 +55,7 @@ const Card = ({ company }) => {
             </Paragraph>
           </LinkOverlay>
         </Box>
-      </Box>
+      </HStack>
     </LinkBox>
   );
 };

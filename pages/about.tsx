@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Container, Divider, Heading, Tag, Text } from "@chakra-ui/react";
+import { Box, Container, Divider, Tag, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { useState } from "react";
 import Section from "../components/Layout/Section";

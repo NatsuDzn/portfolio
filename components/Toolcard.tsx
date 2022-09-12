@@ -6,6 +6,7 @@ import {
   Stack,
   TagLeftIcon,
   Link,
+  HStack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
@@ -30,14 +31,13 @@ const Toolcard = ({ tool }) => {
       rel="noopener"
       isExternal
     >
-      <Box
+      <HStack
         p={4}
         borderColor={useColorModeValue("gray.300", "gray.700")}
         borderRadius={5}
         borderWidth="1px"
         transition=".25s"
         cursor="pointer"
-        d="flex"
         alignItems="flex-start"
         role="group"
         _hover={{
@@ -53,6 +53,7 @@ const Toolcard = ({ tool }) => {
           borderWidth="1px"
           transition=".5s"
           display="flex"
+          mr={2}
         >
           <Image
             height={36}
@@ -78,7 +79,7 @@ const Toolcard = ({ tool }) => {
             ))}
           </Stack>
         </Box>
-      </Box>
+      </HStack>
     </Link>
   );
 };

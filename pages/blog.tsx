@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
+import { Container, Grid, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import Blogcard from "../components/Blogcard";
