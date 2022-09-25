@@ -30,6 +30,10 @@ const Links = [
     name: "About",
     route: "/about",
   },
+  {
+    name: "Projects",
+    route: "/projects",
+  },
 ];
 
 const extraLinks = [

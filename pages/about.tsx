@@ -1,11 +1,10 @@
 import Head from "next/head";
 import { Box, Container, Divider, Tag, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
-import { useState } from "react";
 import Section from "../components/Layout/Section";
 
 const About = () => {
-  const [coolStuff, setCoolStuff] = useState([
+  const coolStuff: string[] = [
     "React",
     "Angular",
     "Typescript",
@@ -13,7 +12,7 @@ const About = () => {
     "Space",
     "Anime",
     "Manga",
-  ]);
+  ];
 
   return (
     <div>
@@ -29,12 +28,7 @@ const About = () => {
         <Container maxW="container.md" mt={10}>
           <Section delay={0.1}>
             <Box>
-              <Text
-                as="h1"
-                fontSize="custom"
-                fontWeight="bold"
-                mb={4}
-              >
+              <Text as="h1" fontSize="custom" fontWeight="bold" mb={4}>
                 About Me
               </Text>
               <Paragraph fontSize="lg" lineHeight={1.6}>
@@ -50,12 +44,7 @@ const About = () => {
 
           <Section delay={0.2}>
             <Box>
-              <Text
-                as="h1"
-                fontSize="custom"
-                fontWeight="bold"
-                mb={4}
-              >
+              <Text as="h1" fontSize="custom" fontWeight="bold" mb={4}>
                 Work
               </Text>
               <Paragraph fontSize="lg" lineHeight={1.6}>
@@ -72,12 +61,7 @@ const About = () => {
 
           <Section delay={0.3}>
             <Box>
-              <Text
-                as="h1"
-                fontSize="custom"
-                fontWeight="bold"
-                mb={4}
-              >
+              <Text as="h1" fontSize="custom" fontWeight="bold" mb={4}>
                 Thing I ❤
               </Text>
               <Paragraph fontSize="xl" lineHeight={1.6}>
