@@ -2,21 +2,20 @@ import Head from "next/head";
 import { Container, Grid, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import Blogcard from "../components/Blogcard";
 import sorter from "sort-isostring";
 import { GetStaticProps } from "next";
 import Section from "../components/Layout/Section";
 import Projectcard from "../components/Projectcard";
 
-const Projects = ({ projects }) => {  
+const Projects = ({ projects }) => {
   return (
     <div>
       <Head>
-        <title>Blog | Nathanael Louzoun</title>
-        <meta name="description" content="Blog | Nathanael Louzoun" />
+        <title>Projects | Nathanael Louzoun</title>
+        <meta name="description" content="Projects | Nathanael Louzoun" />
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta property="og:title" content="Blog | Nathanael Louzoun" />
+        <meta property="og:title" content="Projects | Nathanael Louzoun" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -39,12 +38,10 @@ const Projects = ({ projects }) => {
               gap={5}
             >
               {projects
-                .sort((x, y) =>
-                  sorter(y.fields.year, x.fields.year)
-                )
-                .map((project => {
-                  return <Projectcard project={project} key={project.id} />
-                }))}
+                .sort((x, y) => sorter(y.fields.year, x.fields.year))
+                .map((project) => {
+                  return <Projectcard project={project} key={project.id} />;
+                })}
             </Grid>
           </Section>
         </Container>
@@ -53,7 +50,7 @@ const Projects = ({ projects }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const projects = await getTable("Projects");
 
   return {
