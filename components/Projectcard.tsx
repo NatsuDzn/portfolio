@@ -50,6 +50,7 @@ const Projectcard = ({ project }) => {
             src={project?.fields.thumbnail[0].url}
             layout="fill"
             objectFit="cover"
+            priority={true}
           />
         </AspectRatio>
 
