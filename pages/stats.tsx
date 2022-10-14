@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Container, Text } from "@chakra-ui/react";
 import Githubstats from "../components/pages/Githubstats";
 import Section from "../components/Layout/Section";
+import { createThumbnail } from "../lib/helpers";
 
 const Stats = () => {
   return (
@@ -12,6 +13,7 @@ const Stats = () => {
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
         <meta property="og:title" content="Stats | Nathanael Louzoun" />
+        <meta property="og:image" content={createThumbnail("Github stats", "📈")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

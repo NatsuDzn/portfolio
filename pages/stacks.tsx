@@ -22,6 +22,7 @@ import {
   HiDesktopComputer,
 } from "react-icons/hi";
 import Section from "../components/Layout/Section";
+import { createThumbnail } from "../lib/helpers";
 
 const Stacks = ({ stacks }) => {
   const [stacksList, setStacksList] = useState(stacks);
@@ -49,6 +50,7 @@ const Stacks = ({ stacks }) => {
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
         <meta property="og:title" content="Stacks | Nathanael Louzoun" />
+        <meta property="og:image" content={createThumbnail("Stacks I use", "⚡")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -64,7 +66,7 @@ const Stacks = ({ stacks }) => {
               Stacks
             </Text>
             <Paragraph fontSize="lg" lineHeight={1.6} textAlign="center">
-              List of my favorite technologies 
+              List of my favorite technologies
             </Paragraph>
           </Section>
 

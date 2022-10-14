@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Box, Container, Divider, Tag, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import Section from "../components/Layout/Section";
+import { createThumbnail } from "../lib/helpers";
 
 const About = () => {
   const coolStuff: string[] = [
@@ -22,6 +23,7 @@ const About = () => {
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
         <meta property="og:title" content="About | Nathanael Louzoun" />
+        <meta property="og:image" content={createThumbnail("About me", "👨‍🎓")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

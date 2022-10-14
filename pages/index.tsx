@@ -14,6 +14,7 @@ import Company from "../components/pages/Company";
 import Image from "next/image";
 import { useState } from "react";
 import Section from "../components/Layout/Section";
+import { createThumbnail } from "../lib/helpers";
 
 export default function Home() {
   const [avatarLoading, setAvatarLoading] = useState(false);
@@ -32,6 +33,7 @@ export default function Home() {
           property="og:title"
           content="Nathanael Louzoun | Front end developer"
         />
+        <meta property="og:image" content={createThumbnail("My portfolio", "👋")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="container.md" mt={10}>

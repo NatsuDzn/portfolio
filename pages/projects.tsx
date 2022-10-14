@@ -6,6 +6,7 @@ import sorter from "sort-isostring";
 import { GetStaticProps } from "next";
 import Section from "../components/Layout/Section";
 import Projectcard from "../components/Projectcard";
+import { createThumbnail } from "../lib/helpers";
 
 const Projects = ({ projects }) => {
   return (
@@ -16,6 +17,7 @@ const Projects = ({ projects }) => {
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
         <meta property="og:title" content="Projects | Nathanael Louzoun" />
+        <meta property="og:image" content={createThumbnail("Projects", "💻")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

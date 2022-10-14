@@ -17,6 +17,7 @@ import Toolcard from "../components/Toolcard";
 import { GetStaticProps } from "next";
 import { HiCollection } from "react-icons/hi";
 import Section from "../components/Layout/Section";
+import { createThumbnail } from "../lib/helpers";
 
 const Tools = ({ tools }) => {
   const [toolsList, setToolsList] = useState(tools);
@@ -44,6 +45,7 @@ const Tools = ({ tools }) => {
         <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
         <meta property="og:title" content="Tools | Nathanael Louzoun" />
+        <meta property="og:image" content={createThumbnail("Tools I use everyday", "🚀")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
