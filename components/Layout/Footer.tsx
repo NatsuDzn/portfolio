@@ -1,4 +1,3 @@
-import { WarningTwoIcon } from "@chakra-ui/icons";
 import {
   Box,
   Stack,
@@ -6,9 +5,6 @@ import {
   Container,
   ButtonGroup,
   IconButton,
-  Tag,
-  TagLeftIcon,
-  TagLabel,
   Center,
 } from "@chakra-ui/react";
 
@@ -27,10 +23,6 @@ const Footer = () => (
     <Container maxW="container.md">
       <Stack direction="row" spacing="4" align="center" justify="space-between">
         <Text fontSize="sm">
-          <Tag mr={4} size="sm" key="sm" variant="outline" colorScheme="yellow">
-            <TagLeftIcon boxSize="12px" as={WarningTwoIcon} />
-            <TagLabel>WIP</TagLabel>
-          </Tag>
           &copy; {new Date().getFullYear()} Nathanael Louzoun
         </Text>
         <ButtonGroup variant="ghost" color="gray.600">
