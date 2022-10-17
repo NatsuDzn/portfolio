@@ -17,7 +17,7 @@ export const getUserContribution = async () => {
       Authorization: `Bearer ${github_bearer}`,
     },
     body: JSON.stringify({
-      query: query,
+      query,
     }),
   };
 

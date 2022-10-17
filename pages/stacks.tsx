@@ -137,7 +137,7 @@ const Stacks = ({ stacks }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const stacks = await getTable("Stacks");
 
   return {

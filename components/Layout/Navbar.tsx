@@ -17,10 +17,8 @@ import Logo from "../Logo";
 import { useRouter } from "next/router";
 import {
   HiBeaker,
-  HiBookOpen,
   HiChartSquareBar,
   HiLightningBolt,
-  HiStar,
 } from "react-icons/hi";
 import useSound from "use-sound";
 import { useCallback } from "react";
@@ -66,10 +64,10 @@ const extraLinks = [
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
 
-  let router = useRouter();
-  let { asPath } = router;
+  const router = useRouter();
+  const { asPath } = router;
 
   const [play] = useSound("/assets/audios/lightswitch.mp3", {
     volume: 0.05,

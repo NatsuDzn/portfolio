@@ -55,8 +55,8 @@ interface Full {
 }
 
 const Blogcard = ({ article }: Article) => {
-  let router = useRouter();
-  let { asPath } = router;
+  const router = useRouter();
+  const { asPath } = router;
 
   return (
     <Link href={`/blog/${article?.fields.slug}`} currentPath={asPath}>

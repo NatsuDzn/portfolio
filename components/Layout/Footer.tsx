@@ -14,7 +14,6 @@ import {
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Nowplaying from "../Nowplaying";
-import Nowwatching from "../Nowwatching";
 
 const Footer = () => (
   <Box

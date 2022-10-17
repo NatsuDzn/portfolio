@@ -24,8 +24,8 @@ interface extraLinks {
 }
 
 const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLinks }) => {
-  let router = useRouter();
-  let { asPath } = router;
+  const router = useRouter();
+  const { asPath } = router;
   
   const activeColor = useColorModeValue("gray.100", "active");
 

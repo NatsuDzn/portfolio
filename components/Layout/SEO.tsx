@@ -14,8 +14,8 @@ const SEO = ({ title, description, thumbnail }: SEOProps) => {
       canonical=""
       openGraph={{
         url: process.browser ? window.location.origin : null,
-        title: title,
-        description: description,
+        title,
+        description,
         images: [
           {
             url: thumbnail,

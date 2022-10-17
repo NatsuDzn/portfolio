@@ -92,7 +92,7 @@ export default function Favorites({ favs }) {
                   ?.filter((favorite) =>
                     tab ? favorite.type === tab?.toUpperCase() : favorite
                   )
-                  .map((fav, i) => (
+                  .map((fav) => (
                     <Favcard media={fav} key={fav.id} />
                   ))}
               </AnimatePresence>
@@ -104,7 +104,7 @@ export default function Favorites({ favs }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("https://nathanael-louzoun.vercel.app/api/anilist/favorites");
   const favs = await res.json();
 

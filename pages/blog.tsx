@@ -53,7 +53,7 @@ const Blog = ({ articles }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const articles = await getTable("Blog");
 
   return {

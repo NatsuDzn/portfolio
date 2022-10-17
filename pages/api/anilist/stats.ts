@@ -26,7 +26,7 @@ export const getUserStats = async () => {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: query,
+      query,
     }),
   };
 

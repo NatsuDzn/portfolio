@@ -45,7 +45,7 @@ fragment mediaListEntry on MediaConnection {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      query: query,
+      query,
     }),
   };
 
