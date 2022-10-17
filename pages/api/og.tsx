@@ -1,4 +1,5 @@
 import { ImageResponse } from "@vercel/og";
+import { NextRequest } from "next/server";
 
 export const config = {
   runtime: "experimental-edge",
@@ -7,47 +8,6 @@ export const config = {
 const font = fetch(
   new URL("../../public/assets/fonts/Inter-Bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
-
-export default async function (req) {
-  const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") ?? "Default title";
-  const emoji = searchParams.get("emoji") ?? "👋";
-  const fontData = await font;
-
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          background: "#0e1117",
-          color: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "2rem",
-          fontFamily: "Inter",
-        }}
-      >
-        <OGSection title={title} emoji={emoji} />
-        <OGFooter label="nathanael-louzoun.vercel.app " />
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 600,
-      emoji: "twemoji",
-      fonts: [
-        {
-          name: "Inter",
-          data: fontData,
-          style: "normal",
-        },
-      ],
-    }
-  );
-}
 
 const OGBadge = ({ label = "Nathanael Louzoun" }) => {
   return (
@@ -92,7 +52,7 @@ const OGFooter = ({ label, fill = "#49a167" }) => {
         justifyContent: "space-between",
         width: "100%",
         position: "absolute",
-        bottom: 32,
+        bottom: 64,
       }}
     >
       <svg
@@ -109,3 +69,44 @@ const OGFooter = ({ label, fill = "#49a167" }) => {
     </footer>
   );
 };
+
+export default async function handler(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const title = searchParams.get("title") ?? "Default title";
+  const emoji = searchParams.get("emoji") ?? "👋";
+  const fontData = await font;
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          background: "#0e1117",
+          color: "white",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "4rem",
+          fontFamily: "Inter",
+        }}
+      >
+        <OGSection title={title} emoji={emoji} />
+        <OGFooter label="nathanael-louzoun.vercel.app " />
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 627,
+      emoji: "twemoji",
+      fonts: [
+        {
+          name: "Inter",
+          data: fontData,
+          style: "normal",
+        },
+      ],
+    }
+  );
+}

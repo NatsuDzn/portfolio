@@ -15,25 +15,20 @@ import Image from "next/image";
 import { useState } from "react";
 import Section from "../components/Layout/Section";
 import { createThumbnail } from "../lib/helpers";
+import SEO from "../components/Layout/SEO";
 
 export default function Home() {
   const [avatarLoading, setAvatarLoading] = useState(false);
 
   return (
-    <div>
+    <>
+      <SEO
+        title={"Nathanael Louzoun | Front end developer"}
+        description={"Front end developer based in Paris"}
+        thumbnail={createThumbnail("My portfolio", "👋")}
+      />
       <Head>
-        <title>Nathanael Louzoun | Front end developer</title>
-        <meta
-          name="description"
-          content="Nathanael Louzoun | Front end developer"
-        />
-        <meta property="og:type" content="website" />
         <meta name="robots" content="follow, index" />
-        <meta
-          property="og:title"
-          content="Nathanael Louzoun | Front end developer"
-        />
-        <meta property="og:image" content={createThumbnail("My portfolio", "👋")} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxW="container.md" mt={10}>
@@ -77,7 +72,7 @@ export default function Home() {
                 color={useColorModeValue("black", "green.500")}
                 style={{ boxShadow: "0 2px" }}
               >
-                Hetic 
+                Hetic
               </Text>{" "}
               and I’m now working fulltime at{" "}
               <Text
@@ -98,6 +93,6 @@ export default function Home() {
           <Company />
         </Section>
       </Container>
-    </div>
+    </>
   );
 }

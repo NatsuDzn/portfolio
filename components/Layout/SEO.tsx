@@ -13,18 +13,18 @@ const SEO = ({ title, description, thumbnail }: SEOProps) => {
       description={description}
       canonical=""
       openGraph={{
-        url: process.browser ? window.location.origin : null,
+        url: "https://nathanael-louzoun.vercel.app/",
         title,
         description,
         images: [
           {
             url: thumbnail,
-            width: 800,
-            height: 600,
+            width: 1200,
+            height: 627,
             alt: "Og Image Alt",
           },
         ],
-        site_name: "SiteName",
+        site_name: "Nathanael Louzoun | Front end developer",
       }}
       twitter={{
         handle: "@NatsuDzn",
