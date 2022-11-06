@@ -1,15 +1,35 @@
-import { Grid, Text } from "@chakra-ui/react";
+import {
+  Center,
+  Divider,
+  Grid,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import ExpCard from "../Expcard";
 
 const Experiences = ({ experiences }) => {
+  const borderColor = useColorModeValue("gray.300", "gray.700");
+  
   return (
     <>
       <Text as="h1" fontSize="custom" fontWeight="bold">
         I’ve worked with
       </Text>
-      <Grid mt={4} templateColumns={["1fr"]} gap={5}>
-        {experiences.map((experience) => (
-          <ExpCard exp={experience.fields} key={experience.id} />
+      <Grid mt={4} templateColumns={["1fr"]}>
+        {experiences.map((experience, index) => (
+          <>
+            {index !== 0 && (
+              <Center>
+                <Divider
+                  orientation="vertical"
+                  height="1.5rem"
+                  borderColor={borderColor}
+                  transition=".25s"
+                />
+              </Center>
+            )}
+            <ExpCard exp={experience.fields} key={experience.id} />
+          </>
         ))}
       </Grid>
     </>

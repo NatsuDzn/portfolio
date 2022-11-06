@@ -41,9 +41,9 @@ const ExpCard = ({ exp }) => {
           borderColor={useColorModeValue("gray.300", "gray.700")}
           borderRadius="lg"
           borderWidth="1px"
-          transition=".5s"
+          transition=".25s"
           display="flex"
-          mr={4}
+          mr={2}
         >
           <Image
             height={36}
