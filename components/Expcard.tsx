@@ -1,7 +1,6 @@
 import {
   Box,
   Heading,
-  IconButton,
   LinkOverlay,
   LinkBox,
   useColorModeValue,
@@ -9,8 +8,17 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
+import Image from "next/image";
 
-const Card = ({ company }) => {
+const convertDate = (date: string): string => {  
+  if (date)
+    return new Date(date).toLocaleDateString("en-us", {
+      month: "long",
+      year: "numeric",
+    });
+};
+
+const ExpCard = ({ exp }) => {
   return (
     <LinkBox as="article">
       <HStack
@@ -28,30 +36,37 @@ const Card = ({ company }) => {
           transform: "translateY(-4px)",
         }}
       >
-        <IconButton
-          as="a"
-          href={company?.url}
-          rel="noopener"
-          aria-label={company?.name}
-          mr={3}
-          color={useColorModeValue("gray.600", "white")}
-          _groupHover={{ color: useColorModeValue("black", "green.500") }}
-          icon={company?.icon}
-        />
+        <Box
+          p={2}
+          borderColor={useColorModeValue("gray.300", "gray.700")}
+          borderRadius="lg"
+          borderWidth="1px"
+          transition=".5s"
+          display="flex"
+          mr={4}
+        >
+          <Image
+            height={36}
+            width={36}
+            alt={exp.name}
+            src={exp.logo[0].url}
+            objectFit="contain"
+          />
+        </Box>
         <Box w="100%">
-          <LinkOverlay href={company?.url} rel="noopener" isExternal>
+          <LinkOverlay href={exp.url} rel="noopener" isExternal>
             <HStack justifyContent="space-between">
               <Heading as="h2" fontSize="14px">
-                {company?.name}
+                {exp.name}
               </Heading>
               <HStack fontSize="xs" fontWeight="light">
-                <Text>{company?.start}</Text>
+                <Text>{convertDate(exp.start_date)}</Text>
                 <Text>-</Text>
-                <Text>{company?.end}</Text>
+                <Text>{convertDate(exp.end_date) || "Present"}</Text>
               </HStack>
             </HStack>
             <Paragraph mt={1} fontSize="sm">
-              {company?.description}
+              {exp.description}
             </Paragraph>
           </LinkOverlay>
         </Box>
@@ -60,4 +75,4 @@ const Card = ({ company }) => {
   );
 };
 
-export default Card;
+export default ExpCard;

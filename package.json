@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.10.4",
     "@fontsource/inter": "^4.5.12",
     "@vercel/og": "^0.0.18",
-    "airtable": "^0.11.4",
+    "airtable": "^0.11.5",
     "cz-emoji-conventional": "^1.0.1",
     "dotenv": "^16.0.2",
     "framer-motion": "^7.3.2",

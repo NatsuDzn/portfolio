@@ -8,16 +8,16 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-
 import Paragraph from "../components/Paragraph";
-import Company from "../components/pages/Company";
 import Image from "next/image";
 import { useState } from "react";
 import Section from "../components/Layout/Section";
 import { createThumbnail } from "../lib/helpers";
 import SEO from "../components/Layout/SEO";
+import { getTable } from "../lib/airtable";
+import Experiences from "../components/pages/Experiences";
 
-export default function Home() {
+export default function Home({exps}) {
   const [avatarLoading, setAvatarLoading] = useState(false);
 
   return (
@@ -90,9 +90,20 @@ export default function Home() {
           </Box>
         </Section>
         <Section delay={0.2}>
-          <Company />
+          <Experiences experiences={exps} />
         </Section>
       </Container>
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const exps = await getTable("Experience");
+
+  return {
+    props: {
+      exps,
+    },
+    revalidate: 10,
+  };
+};
