@@ -64,7 +64,7 @@ export default function Home({exps}) {
               Hey, I’m Nathanael Louzoun
             </Text>
             <Paragraph fontSize="lg" lineHeight={1.6}>
-              I’m a front end developer, who is focused on React and Angular.
+              I’m a software developer, who is focused on React and Angular.
               I’m born in Paris. I’ve studied at{" "}
               <Text
                 as="span"

@@ -36,7 +36,7 @@ const Stacklist = ({ stacks }) => {
     <HStack mt={4} gap={1}>
       {stacks.split(",").map((stack) => {
         return (
-          <Tooltip key={stack} label={stack} shouldWrapChildren  >
+          <Tooltip key={stack} label={stack} shouldWrapChildren textTransform="capitalize">
             <Icon as={handleStackIcon(stack)} />
           </Tooltip>
         );
