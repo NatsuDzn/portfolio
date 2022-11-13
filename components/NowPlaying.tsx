@@ -10,17 +10,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { usePalette } from "react-palette";
-import { SiTrakt } from "react-icons/si";
-import { IoPlay } from "react-icons/io5";
+import { SiSpotify } from "react-icons/si";
+import { IoHeadset } from "react-icons/io5";
 import Section from "./Layout/Section";
 import { AnimatePresence } from "framer-motion";
 
-const Nowwatching = () => {
+const NowPlaying = () => {
   const { colorMode } = useColorMode();
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data } = useSWR("/api/trakt", fetcher);
+  const { data } = useSWR("/api/spotify", fetcher);
 
-  const palette = usePalette(data?.poster_path).data;
+  const palette = usePalette(data?.albumImageUrl).data;
 
   const borderColor = {
     base: useColorModeValue("gray.300", "gray.700"),
@@ -35,16 +35,18 @@ const Nowwatching = () => {
 
   return (
     <AnimatePresence>
-      {data?.isWatching ? (
+      {data?.isPlaying ? (
         <Section delay={0.1}>
           <HStack fontSize="xs" mb={2}>
-            <IoPlay size="14px" />
-            <Text>Currently watching:</Text>
+            <IoHeadset size="14px" />
+            <Text>Currently listening to:</Text>
           </HStack>
           <Link
             style={{ textDecoration: "none" }}
             href={
-              data?.isWatching ? data?.url : "https://trakt.tv/users/natsudzn"
+              data?.isPlaying
+                ? data.songUrl
+                : "https://open.spotify.com/user/natsuxgraph"
             }
             rel="noopener"
             isExternal
@@ -64,12 +66,13 @@ const Nowwatching = () => {
             _focus={{ outlineColor: borderColor["hover"] }}
           >
             <Image
-              w={12}
-              h="auto"
+              w={16}
+              h={16}
+              objectFit="cover"
               shadow="md"
               rounded="md"
-              src={data?.poster_path}
-              alt={data?.title}
+              src={data?.albumImageUrl}
+              alt={data?.album}
             />
 
             <VStack align="start" gap={0} w="100%">
@@ -88,19 +91,12 @@ const Nowwatching = () => {
                 noOfLines={1}
                 color={paletteColor.text}
               >
-                {data?.type === "episode"
-                  ? `S${String(data?.info.season).padStart(
-                      2,
-                      "0"
-                    )} - EP${String(data?.info.number).padStart(2, "0")} (${
-                      data?.info.title
-                    })`
-                  : data?.info.year}
+                {data?.artist}
               </Text>
             </VStack>
 
             <Box position="absolute" bottom={1.5} right={1.5}>
-              <SiTrakt size={16} color={paletteColor.text} />
+              <SiSpotify size={16} color={paletteColor.text} />
             </Box>
           </Link>
         </Section>
@@ -109,4 +105,4 @@ const Nowwatching = () => {
   );
 };
 
-export default Nowwatching;
+export default NowPlaying;

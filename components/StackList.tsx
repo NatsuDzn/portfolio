@@ -31,7 +31,7 @@ const handleStackIcon = (stack: string): IconType => {
   }
 };
 
-const Stacklist = ({ stacks }) => {
+const StackList = ({ stacks }) => {
   return (
     <HStack mt={4} gap={1}>
       {stacks.split(",").map((stack) => {
@@ -45,4 +45,4 @@ const Stacklist = ({ stacks }) => {
   );
 };
 
-export default Stacklist;
+export default StackList;

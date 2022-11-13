@@ -8,7 +8,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-const Favcard = ({ media }) => {
+const FavCard = ({ media }) => {
   return (
     <Link
       style={{ textDecoration: "none" }}
@@ -62,4 +62,4 @@ const Favcard = ({ media }) => {
   );
 };
 
-export default Favcard;
+export default FavCard;

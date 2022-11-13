@@ -13,7 +13,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import { HiBookOpen, HiCollection, HiFilm } from "react-icons/hi";
-import Favcard from "../components/Favcard";
+import FavCard from "../components/FavCard";
 import Section from "../components/Layout/Section";
 import Paragraph from "../components/Paragraph";
 
@@ -93,7 +93,7 @@ export default function Favorites({ favs }) {
                     tab ? favorite.type === tab?.toUpperCase() : favorite
                   )
                   .map((fav) => (
-                    <Favcard media={fav} key={fav.id} />
+                    <FavCard media={fav} key={fav.id} />
                   ))}
               </AnimatePresence>
             </Grid>

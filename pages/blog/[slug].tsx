@@ -5,7 +5,7 @@ import { getAllPostsPaths, getPostData } from "../../lib/airtable";
 import readingTime from "reading-time";
 import MDXComponents from "../../components/MDX";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Bloglayout from "../../components/Layout/Bloglayout";
+import BlogLayout from "../../components/Layout/BlogLayout";
 import SEO from "../../components/Layout/SEO";
 import remarkSlug from "remark-slug";
 import remarkCodeTitles from "remark-code-titles";
@@ -32,11 +32,11 @@ export default function Blog({ source, post, frontMatter }) {
       />
 
       <Container maxW="container.md" mt={10}>
-        <Bloglayout frontMatter={frontMatter}>
+        <BlogLayout frontMatter={frontMatter}>
           <Section delay={0.2}>
             <MDXRemote {...source} components={MDXComponents} />
           </Section>
-        </Bloglayout>
+        </BlogLayout>
       </Container>
     </div>
   );

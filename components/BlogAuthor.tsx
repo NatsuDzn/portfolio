@@ -11,7 +11,7 @@ import {
 import { FaCheck, FaLink } from "react-icons/fa";
 import { format } from "timeago.js";
 
-const Blogauthor = ({ readingTime, publishedAt, url, ...props }) => {
+const BlogAuthor = ({ readingTime, publishedAt, url, ...props }) => {
   const { hasCopied, onCopy } = useClipboard(url);
 
   return (
@@ -44,4 +44,4 @@ const Blogauthor = ({ readingTime, publishedAt, url, ...props }) => {
   );
 };
 
-export default Blogauthor;
+export default BlogAuthor;

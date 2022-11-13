@@ -5,7 +5,7 @@ import { getTable } from "../lib/airtable";
 import sorter from "sort-isostring";
 import { GetStaticProps } from "next";
 import Section from "../components/Layout/Section";
-import Projectcard from "../components/Projectcard";
+import ProjectCard from "../components/ProjectCard";
 import { createThumbnail } from "../lib/helpers";
 
 const Projects = ({ projects }) => {
@@ -42,7 +42,7 @@ const Projects = ({ projects }) => {
               {projects
                 .sort((x, y) => sorter(y.fields.year, x.fields.year))
                 .map((project) => {
-                  return <Projectcard project={project} key={project.id} />;
+                  return <ProjectCard project={project} key={project.id} />;
                 })}
             </Grid>
           </Section>

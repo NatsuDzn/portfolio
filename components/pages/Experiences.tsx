@@ -5,7 +5,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import ExpCard from "../Expcard";
+import ExpCard from "../ExpCard";
 
 const Experiences = ({ experiences }) => {
   const borderColor = useColorModeValue("gray.300", "gray.700");

@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 
-const Stackcard = ({ stack }) => {
+const StackCard = ({ stack }) => {
   return (
     <Link
       style={{ textDecoration: "none" }}
@@ -66,4 +66,4 @@ const Stackcard = ({ stack }) => {
   );
 };
 
-export default Stackcard;
+export default StackCard;

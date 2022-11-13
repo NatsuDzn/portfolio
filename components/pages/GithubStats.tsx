@@ -1,7 +1,7 @@
 import { Box, Grid, Skeleton, Text, useColorModeValue } from "@chakra-ui/react";
 import useSWRImmutable from "swr/immutable";
 
-const Githubstats = () => {
+const GithubStats = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data } = useSWRImmutable("/api/github", fetcher);
 
@@ -54,4 +54,4 @@ const Githubstats = () => {
   );
 };
 
-export default Githubstats;
+export default GithubStats;

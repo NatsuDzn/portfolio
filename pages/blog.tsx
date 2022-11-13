@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Container, Grid, Text } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
-import Blogcard from "../components/Blogcard";
+import BlogCard from "../components/BlogCard";
 import sorter from "sort-isostring";
 import { GetStaticProps } from "next";
 import Section from "../components/Layout/Section";
@@ -43,7 +43,7 @@ const Blog = ({ articles }) => {
                   sorter(y.fields.publishDate, x.fields.publishDate)
                 )
                 .map((article) => {
-                  return <Blogcard article={article} key={article.id} />;
+                  return <BlogCard article={article} key={article.id} />;
                 })}
             </Grid>
           </Section>

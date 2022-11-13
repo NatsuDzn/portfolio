@@ -10,31 +10,31 @@ import {
 } from "@chakra-ui/react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
-const Blogfooter = ({ url, ...props }) => {
+const BlogFooter = ({ url, ...props }) => {
   const shares = [
     {
       name: "Twitter",
       brandBackground: "#1DA1F2",
       icon: <FaTwitter />,
-      url: "https://twitter.com/intent/tweet?url=" + url,
+      url: `https://twitter.com/intent/tweet?url=${url}`,
     },
     {
       name: "Facebook",
       brandBackground: "#4267B2",
       icon: <FaFacebookF />,
-      url: "https://www.facebook.com/sharer.php?u=" + url,
+      url: `https://www.facebook.com/sharer.php?u=${url}`,
     },
     {
       name: "Linkedin",
       brandBackground: "#2867B2",
       icon: <FaLinkedinIn />,
-      url: "https://www.linkedin.com/sharing/share-offsite/?url=" + url,
+      url: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
     },
     {
       name: "Email",
       icon: <EmailIcon />,
       brandBackground: "gray.600",
-      url: "mailto:?body=" + url,
+      url: `mailto:?body=${url}`,
     },
   ];
 
@@ -72,4 +72,4 @@ const Blogfooter = ({ url, ...props }) => {
   );
 };
 
-export default Blogfooter;
+export default BlogFooter;

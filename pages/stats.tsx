@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Container, Text } from "@chakra-ui/react";
-import Githubstats from "../components/pages/Githubstats";
+import GithubStats from "../components/pages/GithubStats";
 import Section from "../components/Layout/Section";
 import { createThumbnail } from "../lib/helpers";
 
@@ -30,7 +30,7 @@ const Stats = () => {
           </Section>
 
           <Section delay={0.2}>
-            <Githubstats />
+            <GithubStats />
           </Section>
         </Container>
       </main>

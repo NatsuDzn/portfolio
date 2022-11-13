@@ -1,17 +1,17 @@
 import { Divider, Heading } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
-import Blogauthor from "../Blogauthor";
-import Blogfooter from "../Blogfooter";
+import BlogAuthor from "../BlogAuthor";
+import BlogFooter from "../BlogFooter";
 import Section from "./Section";
 
-interface Bloglayout {
+interface BlogLayout {
   frontMatter: any;
 }
 
-const Bloglayout = ({
+const BlogLayout = ({
   children,
   frontMatter,
-}: PropsWithChildren<Bloglayout>) => {
+}: PropsWithChildren<BlogLayout>) => {
   return (
     <div>
       <Section delay={0.1}>
@@ -25,7 +25,7 @@ const Bloglayout = ({
 
         <Divider my={4} />
 
-        <Blogauthor
+        <BlogAuthor
           readingTime={frontMatter.readingTime.text}
           publishedAt={frontMatter.publishDate}
           url={"https://nathanael-louzoun.vercel.app/blog/" + frontMatter.slug}
@@ -36,7 +36,7 @@ const Bloglayout = ({
       {children}
 
       <Section delay={0.3}>
-        <Blogfooter
+        <BlogFooter
           url={"https://nathanael-louzoun.vercel.app/blog/" + frontMatter.slug}
           mt={8}
         />
@@ -45,4 +45,4 @@ const Bloglayout = ({
   );
 };
 
-export default Bloglayout;
+export default BlogLayout;

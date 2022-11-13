@@ -8,10 +8,10 @@ import {
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
 import Image from "next/image";
-import Stacklist from "./Stacklist";
+import StackList from "./StackList";
 import Link from "./Layout/nav/Link";
 
-const Projectcard = ({ project }) => {
+const ProjectCard = ({ project }) => {
   return (
     <Link
       href={
@@ -64,11 +64,11 @@ const Projectcard = ({ project }) => {
           <Tag mt={2} size="sm">
             {new Date(project.fields.year).getFullYear()}
           </Tag>
-          <Stacklist stacks={project.fields.stacks} />
+          <StackList stacks={project.fields.stacks} />
         </Box>
       </VStack>
     </Link>
   );
 };
 
-export default Projectcard;
+export default ProjectCard;

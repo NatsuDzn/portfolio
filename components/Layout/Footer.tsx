@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import Nowplaying from "../Nowplaying";
+import NowPlaying from "../NowPlaying";
 
 const Footer = () => (
   <Box
@@ -45,8 +45,8 @@ const Footer = () => (
         </ButtonGroup>
       </Stack>
       <Center mt={4} gap={4} flexWrap="wrap" alignItems="start">
-        <Nowplaying />
-        {/* <Nowwatching /> */}
+        <NowPlaying />
+        {/* <NowWatching /> */}
       </Center>
     </Container>
   </Box>

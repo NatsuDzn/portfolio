@@ -12,7 +12,7 @@ import {
 import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import { useCallback, useState } from "react";
-import Stackcard from "../components/Stackcard";
+import StackCard from "../components/StackCard";
 import { GetStaticProps } from "next";
 import {
   HiCloud,
@@ -127,7 +127,7 @@ const Stacks = ({ stacks }) => {
               {stacksList
                 .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
                 .map((stack, index) => (
-                  <Stackcard stack={stack} key={index} />
+                  <StackCard stack={stack} key={index} />
                 ))}
             </Grid>
           </Section>

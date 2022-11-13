@@ -54,7 +54,7 @@ interface Full {
   height: number;
 }
 
-const Blogcard = ({ article }: Article) => {
+const BlogCard = ({ article }: Article) => {
   const router = useRouter();
   const { asPath } = router;
 
@@ -109,4 +109,4 @@ const Blogcard = ({ article }: Article) => {
   );
 };
 
-export default Blogcard;
+export default BlogCard;

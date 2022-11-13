@@ -13,7 +13,7 @@ import Paragraph from "../components/Paragraph";
 import { getTable } from "../lib/airtable";
 import { FaApple, FaWindows } from "react-icons/fa";
 import { useCallback, useState } from "react";
-import Toolcard from "../components/Toolcard";
+import ToolCard from "../components/ToolCard";
 import { GetStaticProps } from "next";
 import { HiCollection } from "react-icons/hi";
 import Section from "../components/Layout/Section";
@@ -108,7 +108,7 @@ const Tools = ({ tools }) => {
               {toolsList
                 .sort((a, b) => (a.fields.ID > b.fields.ID ? 1 : -1))
                 .map((tool, index) => (
-                  <Toolcard tool={tool} key={index} />
+                  <ToolCard tool={tool} key={index} />
                 ))}
             </Grid>
           </Section>

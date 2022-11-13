@@ -23,7 +23,7 @@ const handlePlatform = (platform) => {
   }
 };
 
-const Toolcard = ({ tool }) => {
+const ToolCard = ({ tool }) => {
   return (
     <Link
       style={{ textDecoration: "none" }}
@@ -84,4 +84,4 @@ const Toolcard = ({ tool }) => {
   );
 };
 
-export default Toolcard;
+export default ToolCard;
