@@ -2,6 +2,7 @@ import {
   AspectRatio,
   Box,
   Heading,
+  Image,
   Tag,
   TagLeftIcon,
   useColorModeValue,
@@ -11,7 +12,6 @@ import Link from "./Layout/nav/Link";
 import Paragraph from "./Paragraph";
 import { format } from "timeago.js";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { HiClock } from "react-icons/hi";
 
 interface Article {
@@ -87,7 +87,6 @@ const BlogCard = ({ article }: Article) => {
           <Image
             alt={article?.fields.title}
             src={article?.fields.thumbnail[0].url}
-            layout="fill"
             objectFit="cover"
           />
         </AspectRatio>

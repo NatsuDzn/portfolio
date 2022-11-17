@@ -6,8 +6,8 @@ import {
   Stack,
   Link,
   HStack,
+  Image,
 } from "@chakra-ui/react";
-import Image from "next/image";
 
 const StackCard = ({ stack }) => {
   return (
@@ -42,8 +42,7 @@ const StackCard = ({ stack }) => {
           mr={2}
         >
           <Image
-            height={36}
-            width={36}
+            boxSize="36px"
             alt={stack?.fields.name}
             src={stack?.fields.image[0].url}
           />
