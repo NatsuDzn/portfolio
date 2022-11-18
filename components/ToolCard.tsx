@@ -7,8 +7,8 @@ import {
   TagLeftIcon,
   Link,
   HStack,
-  Image,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { FaApple, FaAppStoreIos, FaWindows } from "react-icons/fa";
 import Paragraph from "./Paragraph";
 
@@ -56,7 +56,8 @@ const ToolCard = ({ tool }) => {
           mr={2}
         >
           <Image
-            boxSize="36px"
+            height={36}
+            width={36}
             alt={tool?.fields.name}
             src={tool?.fields.image[0].url}
           />

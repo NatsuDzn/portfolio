@@ -5,9 +5,9 @@ import {
   Container,
   Divider,
   Heading,
-  Image,
   Text,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import NextLink from "next/link";
 import Section from "./Section";
 
@@ -24,8 +24,9 @@ const Error = ({ title, subtitle, errorType = "" }: ErrorProps) => {
         <Center alignItems="center">
           <Box borderRadius="full" overflow="hidden" width={128} height={128}>
             <Image
-              boxSize="128px"
-              objectFit="contain"
+              width={256}
+              height={256}
+              objectFit="cover"
               alt="test"
               src={
                 errorType === "server"
