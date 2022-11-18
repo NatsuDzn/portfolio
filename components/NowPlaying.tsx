@@ -21,7 +21,7 @@ const NowPlaying = () => {
   const { data } = useSWR("/api/spotify", fetcher);
 
   const palette = usePalette(data?.albumImageUrl).data;
-
+  
   const borderColor = {
     base: useColorModeValue("gray.300", "gray.700"),
     hover: colorMode !== "light" ? palette.darkVibrant : palette.lightVibrant,
@@ -32,6 +32,7 @@ const NowPlaying = () => {
       colorMode === "light" ? palette.darkVibrant : palette.lightVibrant,
     text: colorMode === "light" ? palette.lightVibrant : palette.darkVibrant,
   };
+  
 
   return (
     <AnimatePresence>
