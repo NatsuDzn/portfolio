@@ -2,12 +2,12 @@ import {
   AspectRatio,
   Box,
   Heading,
+  Image,
   Tag,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
-import Image from "next/image";
 import StackList from "./StackList";
 import Link from "./Layout/nav/Link";
 
@@ -48,9 +48,7 @@ const ProjectCard = ({ project }) => {
           <Image
             alt={project?.fields.title}
             src={project?.fields.thumbnail_url}
-            layout="fill"
             objectFit="cover"
-            priority={true}
           />
         </AspectRatio>
 

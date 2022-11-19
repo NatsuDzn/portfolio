@@ -6,11 +6,11 @@ import {
   useColorModeValue,
   HStack,
   Text,
+  Image,
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
-import Image from "next/image";
 
-const convertDate = (date: string): string => {  
+const convertDate = (date: string): string => {
   if (date)
     return new Date(date).toLocaleDateString("en-us", {
       month: "long",
@@ -44,10 +44,10 @@ const ExpCard = ({ exp }) => {
           transition=".25s"
           display="flex"
           mr={2}
+          height="52px"
+          width="52px"
         >
           <Image
-            height={36}
-            width={36}
             alt={exp.name}
             src={exp.logo_url}
             objectFit="contain"

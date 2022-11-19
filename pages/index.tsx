@@ -4,13 +4,11 @@ import {
   Container,
   Divider,
   Center,
-  SkeletonCircle,
   Text,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import Paragraph from "../components/Paragraph";
-import Image from "next/image";
-import { useState } from "react";
 import Section from "../components/Layout/Section";
 import { createThumbnail } from "../lib/helpers";
 import SEO from "../components/Layout/SEO";
@@ -18,8 +16,6 @@ import { getTable } from "../lib/airtable";
 import Experiences from "../components/pages/Experiences";
 
 export default function Home({exps}) {
-  const [avatarLoading, setAvatarLoading] = useState(false);
-
   return (
     <>
       <SEO
@@ -41,15 +37,11 @@ export default function Home({exps}) {
                 width={128}
                 height={128}
               >
-                {!avatarLoading && <SkeletonCircle height={128} width={128} />}
-
                 <Image
-                  width={256}
-                  height={256}
+                  boxSize="128px"
                   objectFit="cover"
-                  alt="test"
+                  alt="me"
                   src="/assets/images/me.jpg"
-                  onLoadingComplete={() => setAvatarLoading(true)}
                 />
               </Box>
             </Center>
