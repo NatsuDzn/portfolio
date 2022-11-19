@@ -59,7 +59,7 @@ const ToolCard = ({ tool }) => {
             height={36}
             width={36}
             alt={tool?.fields.name}
-            src={tool?.fields.image[0].url}
+            src={tool?.fields.image_path}
           />
         </Box>
 

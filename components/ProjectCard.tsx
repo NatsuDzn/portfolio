@@ -47,7 +47,7 @@ const ProjectCard = ({ project }) => {
         >
           <Image
             alt={project?.fields.title}
-            src={project?.fields.thumbnail[0].url}
+            src={project?.fields.thumbnail_url}
             layout="fill"
             objectFit="cover"
             priority={true}

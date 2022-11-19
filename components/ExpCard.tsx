@@ -49,7 +49,7 @@ const ExpCard = ({ exp }) => {
             height={36}
             width={36}
             alt={exp.name}
-            src={exp.logo[0].url}
+            src={exp.logo_url}
             objectFit="contain"
           />
         </Box>

@@ -45,7 +45,7 @@ const StackCard = ({ stack }) => {
             height={36}
             width={36}
             alt={stack?.fields.name}
-            src={stack?.fields.image[0].url}
+            src={stack?.fields.image_path}
           />
         </Box>
 
