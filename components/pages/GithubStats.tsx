@@ -1,4 +1,4 @@
-import { Box, Grid, Skeleton, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Skeleton, Text, useColorModeValue } from "@chakra-ui/react";
 import useSWRImmutable from "swr/immutable";
 
 const GithubStats = () => {
@@ -23,7 +23,7 @@ const GithubStats = () => {
         {!data ? <Skeleton height="90px" w="100%" borderRadius={5} /> : null}
         {data &&
           Object.keys(data.formattedStats).map((key, index) => (
-            <Box
+            <GridItem
               key={index}
               w="100%"
               p={4}
@@ -47,7 +47,7 @@ const GithubStats = () => {
                   {data.formattedStats[key].contributionCalendar.total}
                 </Text>
               </Box>
-            </Box>
+            </GridItem>
           ))}
       </Grid>
     </>
