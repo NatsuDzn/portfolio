@@ -9,11 +9,11 @@ import {
 } from "@chakra-ui/react";
 import Paragraph from "./Paragraph";
 import StackList from "./StackList";
-import Link from "./Layout/nav/Link";
+import CustomLink from "./Layout/nav/CustomLink";
 
 const ProjectCard = ({ project }) => {
   return (
-    <Link
+    <CustomLink
       href={
         project?.fields.link ? project?.fields.link : project?.fields.github
       }
@@ -65,7 +65,7 @@ const ProjectCard = ({ project }) => {
           <StackList stacks={project.fields.stacks} />
         </Box>
       </VStack>
-    </Link>
+    </CustomLink>
   );
 };
 

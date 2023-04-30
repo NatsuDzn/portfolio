@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
-import Link from "./Link";
+import CustomLink from "./CustomLink";
 
 type DropdownProps = {
   currentPath: string;
@@ -51,7 +51,7 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
       <MenuList bg={useColorModeValue("gray.100", "darkBackground")}> 
         {extraLinks &&
           extraLinks?.map(({ name, route, icon }) => (
-            <Link href={route} key={name} currentPath={asPath}>
+            <CustomLink href={route} key={name} currentPath={asPath}>
               <MenuItem
                 icon={icon}
                 bg={
@@ -61,7 +61,7 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
               >
                 {name}
               </MenuItem>
-            </Link>
+            </CustomLink>
           ))}
       </MenuList>
     </Menu>

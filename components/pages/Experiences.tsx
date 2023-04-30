@@ -6,6 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import ExpCard from "../ExpCard";
+import { Fragment } from "react";
 
 const Experiences = ({ experiences }) => {
   const borderColor = useColorModeValue("gray.300", "gray.700");
@@ -17,7 +18,7 @@ const Experiences = ({ experiences }) => {
       </Text>
       <Grid mt={4} templateColumns={["1fr"]}>
         {experiences.map((experience, index) => (
-          <>
+          <Fragment key={experience.id}>
             {index !== 0 && (
               <Center>
                 <Divider
@@ -29,7 +30,7 @@ const Experiences = ({ experiences }) => {
               </Center>
             )}
             <ExpCard exp={experience.fields} key={experience.id} />
-          </>
+          </Fragment>
         ))}
       </Grid>
     </>

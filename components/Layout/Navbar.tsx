@@ -10,7 +10,7 @@ import {
   Container,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Link from "./nav/Link";
+import CustomLink from "./nav/CustomLink";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./nav/Menu";
 import Logo from "../Logo";
@@ -84,7 +84,7 @@ const Navbar = () => {
   const navigationItem = (
     <>
       {Links.map((link) => (
-        <Link
+        <CustomLink
           href={link.route}
           key={link.name}
           p={2}
@@ -92,7 +92,7 @@ const Navbar = () => {
           currentPath={asPath}
         >
           {link.name}
-        </Link>
+        </CustomLink>
       ))}
       <DropdownMenu currentPath={asPath} extraLinks={extraLinks} />
     </>
@@ -122,7 +122,7 @@ const Navbar = () => {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={"center"}>
-              <Link
+              <CustomLink
                 href="/"
                 key="Home"
                 p={2}
@@ -132,7 +132,7 @@ const Navbar = () => {
                 <Box>
                   <Logo />
                 </Box>
-              </Link>
+              </CustomLink>
               <HStack
                 as={"nav"}
                 spacing={4}

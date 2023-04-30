@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import {
-  Link as ChakraLink,
+  Link,
   LinkProps,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -11,29 +11,28 @@ interface CustomLinkProps extends LinkProps {
   currentPath: string;
 }
 
-const Link = ({
+const CustomLink = ({
   children,
   href,
   currentPath,
   ...props
 }: PropsWithChildren<CustomLinkProps>) => {
-
   const isActive = currentPath === href;
   const activeColor = useColorModeValue("gray.100", "active");
 
   return (
-    <NextLink href={href} passHref>
-      <ChakraLink
-        bg={isActive && activeColor}
-        _hover={{
-          textDecoration: "none",
-        }}
-        {...props}
-      >
-        {children}
-      </ChakraLink>
-    </NextLink>
+    <Link
+      as={NextLink}
+      href={href}
+      bg={isActive && activeColor}
+      _hover={{
+        textDecoration: "none",
+      }}
+      {...props}
+    >
+      {children}
+    </Link>
   );
 };
 
-export default Link;
+export default CustomLink;

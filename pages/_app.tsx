@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
-        <AnimatePresence exitBeforeEnter initial={true}>
+        <AnimatePresence mode="wait" initial={true}>
           <Component {...pageProps} />
         </AnimatePresence>
       </Layout>
