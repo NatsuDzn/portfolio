@@ -15,11 +15,7 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import DropdownMenu from "./nav/Menu";
 import Logo from "../Logo";
 import { useRouter } from "next/router";
-import {
-  HiBeaker,
-  HiChartSquareBar,
-  HiLightningBolt,
-} from "react-icons/hi";
+import { HiBeaker, HiChartSquareBar, HiLightningBolt } from "react-icons/hi";
 import useSound from "use-sound";
 import { useCallback } from "react";
 
@@ -99,68 +95,66 @@ const Navbar = () => {
   );
 
   return (
-    <>
-      <Box
-        as="nav"
-        py={2}
-        borderTop="2px"
-        borderTopColor={useColorModeValue("black", "green.500")}
-        bg={useColorModeValue("#FFFFFF40", "#0E111780")}
-        css={{ backdropFilter: "blur(10px)" }}
-        position="sticky"
-        top={0}
-        zIndex={1}
-        filter="auto"
-      >
-        <Container maxW="container.md">
-          <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-            <IconButton
-              size={"md"}
-              icon={isOpen ? <CloseIcon boxSize="12px" /> : <HamburgerIcon />}
-              aria-label={"Open Menu"}
-              display={{ md: !isOpen ? "none" : "inherit" }}
-              onClick={isOpen ? onClose : onOpen}
-            />
-            <HStack spacing={8} alignItems={"center"}>
-              <CustomLink
-                href="/"
-                key="Home"
-                p={2}
-                rounded={"md"}
-                currentPath={asPath}
-              >
-                <Box>
-                  <Logo />
-                </Box>
-              </CustomLink>
-              <HStack
-                as={"nav"}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
-              >
-                {navigationItem}
-              </HStack>
+    <Box
+      as="nav"
+      py={2}
+      borderTop="2px"
+      borderTopColor={useColorModeValue("black", "green.500")}
+      bg={useColorModeValue("#FFFFFF40", "#0E111780")}
+      css={{ backdropFilter: "blur(10px)" }}
+      position="sticky"
+      top={0}
+      zIndex={1}
+      filter="auto"
+    >
+      <Container maxW="container.md">
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+          <IconButton
+            size={"md"}
+            icon={isOpen ? <CloseIcon boxSize="12px" /> : <HamburgerIcon />}
+            aria-label={"Open Menu"}
+            display={{ md: !isOpen ? "none" : "inherit" }}
+            onClick={isOpen ? onClose : onOpen}
+          />
+          <HStack spacing={8} alignItems={"center"}>
+            <CustomLink
+              href="/"
+              key="Home"
+              p={2}
+              rounded={"md"}
+              currentPath={asPath}
+            >
+              <Box>
+                <Logo />
+              </Box>
+            </CustomLink>
+            <HStack
+              as={"nav"}
+              spacing={4}
+              display={{ base: "none", md: "flex" }}
+            >
+              {navigationItem}
             </HStack>
-            <Flex alignItems={"center"}>
-              <Button
-                aria-label="Switch Theme"
-                onClick={() => switchTheme()}
-                color={useColorModeValue("purple.400", "yellow.400")}
-              >
-                {useColorModeValue(<MoonIcon />, <SunIcon />)}
-              </Button>
-            </Flex>
+          </HStack>
+          <Flex alignItems={"center"}>
+            <Button
+              aria-label="Switch Theme"
+              onClick={() => switchTheme()}
+              color={useColorModeValue("purple.400", "yellow.400")}
+            >
+              {useColorModeValue(<MoonIcon />, <SunIcon />)}
+            </Button>
           </Flex>
-          {isOpen ? (
-            <Box pb={4} mt={3}>
-              <Stack as={"nav"} spacing={4}>
-                {navigationItem}
-              </Stack>
-            </Box>
-          ) : null}
-        </Container>
-      </Box>
-    </>
+        </Flex>
+        {isOpen ? (
+          <Box pb={4} mt={3}>
+            <Stack as={"nav"} spacing={4}>
+              {navigationItem}
+            </Stack>
+          </Box>
+        ) : null}
+      </Container>
+    </Box>
   );
 };
 
