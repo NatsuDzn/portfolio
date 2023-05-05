@@ -58,6 +58,9 @@ const DropdownMenu: FunctionComponent<DropdownProps> = ({ currentPath, extraLink
                   currentPath === route &&
                   activeColor
                 }
+                _hover={{
+                  bg: activeColor,
+                }}
               >
                 {name}
               </MenuItem>

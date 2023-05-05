@@ -27,6 +27,7 @@ const CustomLink = ({
       bg={isActive && activeColor}
       _hover={{
         textDecoration: "none",
+        bg: activeColor,
       }}
       {...props}
     >
